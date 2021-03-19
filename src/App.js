@@ -8,7 +8,7 @@ import "./App.css"
 
 //import components
 import Meeting from './Meeting/Meeting';
-import IssueDetails from './Meeting/IssueDetails';
+import MeetingDetails from './Meeting/MeetingDetails';
 import DisplayIterator from './Meeting/DisplayIterator';
 
 //App Component
@@ -17,7 +17,7 @@ class App extends Component {
   //State object to handle the data
   state = {
     meetings : dummyData,
-    issueDetail : false,
+    meetingDetail : false,
     detailedIssue : null,
     displayManager: {
       startPoint: 0,
@@ -37,14 +37,14 @@ class App extends Component {
 
 
   //Handle the issue details
-  seeIssueDetails = (index) => {
+  seeMeetingDetails = (index) => {
     //Create a temp state to modify it
     var tempState = {...this.state};
-    tempState.issueDetail = true;
+    tempState.meetingDetail = true;
     tempState.detailedIssue = this.state.meetings[index]
 
     //Set the state 
-    this.setState({issueDetail: tempState.issueDetail})
+    this.setState({meetingDetail: tempState.meetingDetail})
     this.setState({detailedIssue: tempState.detailedIssue})
   }
 
@@ -52,11 +52,11 @@ class App extends Component {
   backToIssueList = () => {
         //Create a temp state to modify it
         var tempState = {...this.state};
-        tempState.issueDetail = false;
+        tempState.meetingDetail = false;
         tempState.detailedIssue = null;
 
         //Set the state 
-        this.setState({issueDetail: tempState.issueDetail})
+        this.setState({meetingDetail: tempState.meetingDetail})
         this.setState({detailedIssue: tempState.detailedIssue})
   }
 
@@ -103,10 +103,10 @@ class App extends Component {
     ];
 
     //Set the view based on the state
-    if(this.state.issueDetail){
+    if(this.state.meetingDetail){
       view = (
         <div key={123}>
-            <IssueDetails 
+            <MeetingDetails 
               title = {this.state.detailedIssue.title}
               body = {this.state.detailedIssue.body}
               state = {this.state.detailedIssue.state}
@@ -127,11 +127,16 @@ class App extends Component {
         view.push(
           <div key={this.state.meetings[i].id}>
                       <Meeting
-                        clickRefIssueDetail = {() => this.seeIssueDetails(i)}
-                        title = {this.state.meetings[i].title}
-                        body = {this.state.meetings[i].body}
-                        state = {this.state.meetings[i].state}
-                        issuNumber = {i + 1}
+                        clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
+                        date = {this.state.meetings[i].date}
+                        conducter = {this.state.meetings[i].conducter}
+                        openSong = {this.state.meetings[i].openSong}
+                        sacramentHym = {this.state.meetings[i].sacramentHym}
+                        specialSong = {this.state.meetings[i].specialSong}
+                        closingSong = {this.state.meetings[i].closingSong}
+                        openingPrayer = {this.state.meetings[i].openingPrayer}
+                        closingPrayer = {this.state.meetings[i].closingPrayer}
+                        speakers = {this.state.meetings[i].speakers}
                       />
           </div>
         )

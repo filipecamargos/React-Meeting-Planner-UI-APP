@@ -8,11 +8,12 @@ const Meeting = (props) => {
 
     return (
         <div>
-            <div className="card" className="overEffect" onClick={props.clickRefIssueDetail}>
+            <div className="card" className="overEffect" onClick={props.clickRefMeetingDetail}>
                 <div className="card-body">
-                    <h5 className="card-title">{props.title}</h5>
-                    <p className="card-text">Issue: {props.body}</p>
-                    <p className="card-text">State: {props.state} | Issue Number: {props.issuNumber}</p>
+                    <h5 className="card-title">Meeting Date: {props.date}</h5>
+                    <p className="card-text">Conducter: {props.conducter}</p>
+                    <p className="card-text">Opening Prayer: {props.openingPrayer}</p>
+                    <p className="card-text">Closing Prayer: {props.closingPrayer}</p>
                 </div>
             </div>
         </div>

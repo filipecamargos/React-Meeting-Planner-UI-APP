@@ -1,7 +1,7 @@
 export const dummyData = [
     {
         id: 1,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -25,7 +25,7 @@ export const dummyData = [
     },
     {
         id: 2,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -49,7 +49,7 @@ export const dummyData = [
     },
     {
         id: 3,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -73,7 +73,7 @@ export const dummyData = [
     },
     {
         id: 4,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -97,7 +97,7 @@ export const dummyData = [
     },
     {
         id: 5,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -121,7 +121,7 @@ export const dummyData = [
     },
     {
         id: 6,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -145,7 +145,7 @@ export const dummyData = [
     },
     {
         id: 7,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -169,7 +169,7 @@ export const dummyData = [
     },
     {
         id: 8,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -193,7 +193,7 @@ export const dummyData = [
     },
     {
         id: 9,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -217,7 +217,7 @@ export const dummyData = [
     },
     {
         id: 10,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -241,7 +241,7 @@ export const dummyData = [
     },
     {
         id: 11,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -265,7 +265,7 @@ export const dummyData = [
     },
     {
         id: 12,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -289,7 +289,7 @@ export const dummyData = [
     },
     {
         id: 13,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -313,7 +313,7 @@ export const dummyData = [
     },
     {
         id: 14,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -337,7 +337,7 @@ export const dummyData = [
     },
     {
         id: 15,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -361,7 +361,7 @@ export const dummyData = [
     },
     {
         id: 16,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -385,7 +385,7 @@ export const dummyData = [
     },
     {
         id: 17,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -409,7 +409,7 @@ export const dummyData = [
     },
     {
         id: 18,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -433,7 +433,7 @@ export const dummyData = [
     },
     {
         id: 19,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -457,7 +457,7 @@ export const dummyData = [
     },
     {
         id: 20,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
@@ -481,7 +481,7 @@ export const dummyData = [
     },
     {
         id: 21,
-        date: Date.now,
+        date: "April 27 1998",
         conducter: "john",
         openSong: "The Lord my Readeamer",
         sacramentHym: "He lives",
