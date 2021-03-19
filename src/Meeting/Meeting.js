@@ -1,10 +1,10 @@
 import React from 'react';
 
 //Import CSS 
-import './Issue.css'
+import './Meeting.css'
 
 //Creat  Person Component that takes issues from App and map to display all the data
-const Issue = (props) => { 
+const Meeting = (props) => { 
 
     return (
         <div>
@@ -20,4 +20,4 @@ const Issue = (props) => {
 }
 
 //Make sure to export the person
-export default Issue;
+export default Meeting;

@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 
+//Import DumyData Delet After
+import {dummyData} from './dummyData'
+
 //Impor the CSS file
 import "./App.css"
 
 //import components
-import Issue from './Issue/Issue';
-import IssueDetails from './Issue/IssueDetails';
-import DisplayIterator from './Issue/DisplayIterator';
+import Meeting from './Meeting/Meeting';
+import IssueDetails from './Meeting/IssueDetails';
+import DisplayIterator from './Meeting/DisplayIterator';
 
 //App Component
 class App extends Component {
 
   //State object to handle the data
   state = {
-    issues : [],
+    meetings : dummyData,
     issueDetail : false,
     detailedIssue : null,
     displayManager: {
@@ -22,15 +25,15 @@ class App extends Component {
     }
   }
 
-  //Initiate the request immediately
-  componentDidMount() {
-    fetch('https://api.github.com/repos/walmartlabs/thorax/issues')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ issues: data })
-    })
-    .catch(console.log)
-  }
+  // //Initiate the request immediately
+  // componentDidMount() {
+  //   fetch('')
+  //   .then(res => res.json())
+  //   .then((data) => {
+  //     this.setState({ meetings: data })
+  //   })
+  //   .catch(console.log)
+  // }
 
 
   //Handle the issue details
@@ -38,7 +41,7 @@ class App extends Component {
     //Create a temp state to modify it
     var tempState = {...this.state};
     tempState.issueDetail = true;
-    tempState.detailedIssue = this.state.issues[index]
+    tempState.detailedIssue = this.state.meetings[index]
 
     //Set the state 
     this.setState({issueDetail: tempState.issueDetail})
@@ -58,8 +61,8 @@ class App extends Component {
   }
 
   //Handle next btn
-  nextSetIssues = () => {
-    if(this.state.displayManager.endPoint === this.state.issues.length) {
+  nextSetMeetings = () => {
+    if(this.state.displayManager.endPoint === this.state.meetings.length) {
       return;
     }
         //Create a temp state to modify it
@@ -72,7 +75,7 @@ class App extends Component {
   }
 
   //Handle Previous btn
-  previousSetIssues = () => {
+  previousSetMeetings = () => {
 
     if(this.state.displayManager.startPoint === 0) {
       return;
@@ -93,9 +96,9 @@ class App extends Component {
       <DisplayIterator key={"tempKey"}
         keys = {[0, 1, 3]}
         displayManager = {this.state.displayManager}
-        totalPages = {this.state.issues.length}
-        refnextSetIssues = {() => this.nextSetIssues()}
-        refPreviousSetIssues = {() => this.previousSetIssues()}
+        totalPages = {this.state.meetings.length}
+        refnextSetMeetings = {() => this.nextSetMeetings()}
+        refPreviousSetMeetings = {() => this.previousSetMeetings()}
       />
     ];
 
@@ -118,16 +121,16 @@ class App extends Component {
       )
     } else {
 
-      //Add the issues bases on the displayManager
-      for(let i = this.state.displayManager.startPoint; i < this.state.issues.length; i++)
+      //Add the meetings bases on the displayManager
+      for(let i = this.state.displayManager.startPoint; i < this.state.meetings.length; i++)
       {
         view.push(
-          <div key={this.state.issues[i].id}>
-                      <Issue
+          <div key={this.state.meetings[i].id}>
+                      <Meeting
                         clickRefIssueDetail = {() => this.seeIssueDetails(i)}
-                        title = {this.state.issues[i].title}
-                        body = {this.state.issues[i].body}
-                        state = {this.state.issues[i].state}
+                        title = {this.state.meetings[i].title}
+                        body = {this.state.meetings[i].body}
+                        state = {this.state.meetings[i].state}
                         issuNumber = {i + 1}
                       />
           </div>
@@ -139,8 +142,8 @@ class App extends Component {
     }
     return (
       <div className="AppContainer">
-        <h1>Innovate with Heart</h1>
-        <h2>Walmartlabs Repo: Thorax</h2>
+        <h1>Sacrament Meeting Planner</h1>
+        <h2>Easy to Plan!</h2>
         {view}
       </div> 
     );
