@@ -62,7 +62,7 @@ class App extends Component {
 
   //Handle next btn
   nextSetMeetings = () => {
-    if(this.state.displayManager.endPoint === this.state.meetings.length) {
+    if(this.state.displayManager.endPoint > this.state.meetings.length) {
       return;
     }
         //Create a temp state to modify it

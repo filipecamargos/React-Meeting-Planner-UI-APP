@@ -5,9 +5,9 @@ const DisplayIterator = (props) => {
     return (
         <div>
           <div className="btnsIterators">
-            <button type="button" className="btn btn-info" onClick={props.refPreviousSetIssues}>Previous</button>
-            <button type="button" className="btn btn-info" onClick={props.refnextSetIssues}>Next</button>
-            <span>Issues {props.displayManager.startPoint + 1} -  {props.displayManager.endPoint} | {props.totalPages} </span>
+            <button type="button" className="btn btn-info" onClick={props.refPreviousSetMeetings}>Previous</button>
+            <button type="button" className="btn btn-info" onClick={props.refnextSetMeetings}>Next</button>
+            <span>Meetings {props.displayManager.startPoint + 1} -  {props.displayManager.endPoint} | {props.totalPages} </span>
           </div>
         </div>
     );
