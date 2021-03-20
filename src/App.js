@@ -21,7 +21,7 @@ class App extends Component {
     detailedMeeting : null,
     displayManager: {
       startPoint: 0,
-      endPoint: 10
+      endPoint: 5
     }
   }
 
@@ -45,7 +45,7 @@ class App extends Component {
 
     //Set the state 
     this.setState({meetingDetail: tempState.meetingDetail})
-    this.setState({detailedIssue: tempState.detailedIssue})
+    this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
   //Handle back to the list of issue
@@ -57,7 +57,7 @@ class App extends Component {
 
         //Set the state 
         this.setState({meetingDetail: tempState.meetingDetail})
-        this.setState({detailedIssue: tempState.detailedIssue})
+        this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
   //Handle next btn
@@ -67,8 +67,8 @@ class App extends Component {
     }
         //Create a temp state to modify it
         var tempState = {...this.state};
-        tempState.displayManager.startPoint += 10;
-        tempState.displayManager.endPoint += 10;
+        tempState.displayManager.startPoint += 5;
+        tempState.displayManager.endPoint += 5;
 
         //Set the state 
         this.setState({displayManager : tempState.displayManager})
@@ -82,8 +82,8 @@ class App extends Component {
     }
       //Create a temp state to modify it
       var tempState = {...this.state};
-      tempState.displayManager.startPoint -= 10;
-      tempState.displayManager.endPoint -= 10;
+      tempState.displayManager.startPoint -= 5;
+      tempState.displayManager.endPoint -= 5;
 
       //Set the state 
       this.setState({displayManager : tempState.displayManager})
@@ -107,6 +107,15 @@ class App extends Component {
       view = (
         <div key={123}>
             <MeetingDetails 
+              date = {this.state.detailedMeeting.date}
+              conducter = {this.state.detailedMeeting.conducter}
+              openSong = {this.state.detailedMeeting.openSong}
+              sacramentHym = {this.state.detailedMeeting.sacramentHym}
+              specialSong = {this.state.detailedMeeting.specialSong}
+              closingSong = {this.state.detailedMeeting.closingSong}
+              openingPrayer = {this.state.detailedMeeting.openingPrayer}
+              closingPrayer = {this.state.detailedMeeting.closingPrayer}
+              speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {() => this.backToMeetingsList()}
             />
         </div>
