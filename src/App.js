@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//Import DumyData Delet After
+//Import DumyData Delete After
 import {dummyData} from './dummyData'
 
 //Impor the CSS file
@@ -18,7 +18,7 @@ class App extends Component {
   state = {
     meetings : dummyData,
     meetingDetail : false,
-    detailedIssue : null,
+    detailedMeeting : null,
     displayManager: {
       startPoint: 0,
       endPoint: 10
@@ -41,7 +41,7 @@ class App extends Component {
     //Create a temp state to modify it
     var tempState = {...this.state};
     tempState.meetingDetail = true;
-    tempState.detailedIssue = this.state.meetings[index]
+    tempState.detailedMeeting = this.state.meetings[index]
 
     //Set the state 
     this.setState({meetingDetail: tempState.meetingDetail})
@@ -49,11 +49,11 @@ class App extends Component {
   }
 
   //Handle back to the list of issue
-  backToIssueList = () => {
+  backToMeetingsList = () => {
         //Create a temp state to modify it
         var tempState = {...this.state};
         tempState.meetingDetail = false;
-        tempState.detailedIssue = null;
+        tempState.detailedMeeting = null;
 
         //Set the state 
         this.setState({meetingDetail: tempState.meetingDetail})
@@ -107,15 +107,7 @@ class App extends Component {
       view = (
         <div key={123}>
             <MeetingDetails 
-              title = {this.state.detailedIssue.title}
-              body = {this.state.detailedIssue.body}
-              state = {this.state.detailedIssue.state}
-              url = {this.state.detailedIssue.url}
-              author = {this.state.detailedIssue.author}
-              created_at = {this.state.detailedIssue.created_at}
-              updated_at = {this.state.detailedIssue.updated_at}
-              user = {this.state.detailedIssue.user.login}
-              backToIssueList = {() => this.backToIssueList()}
+              backToMeetingsList = {() => this.backToMeetingsList()}
             />
         </div>
       )
