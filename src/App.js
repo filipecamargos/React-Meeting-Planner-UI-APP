@@ -148,8 +148,10 @@ class App extends Component {
     }
     return (
       <div className="AppContainer">
+        <hr />
         <h1>Sacrament Meeting Planner</h1>
         <h2>Easy to Plan!</h2>
+        <hr />
         {view}
       </div> 
     );
