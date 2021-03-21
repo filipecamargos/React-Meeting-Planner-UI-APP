@@ -13,7 +13,7 @@ const MeetingDetails = (props) => {
                     <h5 className="card-title">Meeting Date: {props.date}</h5>
                     <hr />
                     <p className="card-text">Conductor: {props.conducter}</p>
-                    <p className="card-text">Opening Song: {props.openSong}</p>
+                    <p className="card-text">Opening Song: {props.openingSong}</p>
                     <p className="card-text">Opening Prayer: {props.openingPrayer}</p>
                     <hr />
                     <p className="card-text">Speakers:</p>
@@ -26,7 +26,7 @@ const MeetingDetails = (props) => {
                         </div>
                     ))}
                     <hr />
-                    <p className="card-text">Sacrament Song: {props.sacramentHym}</p>
+                    <p className="card-text">Sacrament Song: {props.sacramentHymn}</p>
                     <p className="card-text">Special Song: {props.specialSong}</p>
                     <hr />
                     <p className="card-text">Closing Song: {props.closingSong}</p>
@@ -41,8 +41,8 @@ const MeetingDetails = (props) => {
 }
 
 /**
- *                         openSong = {this.state.meetingDetail.openSong}
-              sacramentHym = {this.state.meetingDetail.sacramentHym}
+ *                         openingSong = {this.state.meetingDetail.openingSong}
+              sacramentHymn = {this.state.meetingDetail.sacramentHymn}
               specialSong = {this.state.meetingDetail.specialSong}
               closingSong = {this.state.meetingDetail.closingSong}
               openingPrayer = {this.state.meetingDetail.openingPrayer}

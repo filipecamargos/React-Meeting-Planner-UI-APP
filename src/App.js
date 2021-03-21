@@ -109,8 +109,8 @@ class App extends Component {
             <MeetingDetails 
               date = {this.state.detailedMeeting.date}
               conducter = {this.state.detailedMeeting.conducter}
-              openSong = {this.state.detailedMeeting.openSong}
-              sacramentHym = {this.state.detailedMeeting.sacramentHym}
+              openingSong = {this.state.detailedMeeting.openingSong}
+              sacramentHymn = {this.state.detailedMeeting.sacramentHymn}
               specialSong = {this.state.detailedMeeting.specialSong}
               closingSong = {this.state.detailedMeeting.closingSong}
               openingPrayer = {this.state.detailedMeeting.openingPrayer}
@@ -131,8 +131,8 @@ class App extends Component {
                         clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
                         date = {this.state.meetings[i].date}
                         conducter = {this.state.meetings[i].conducter}
-                        openSong = {this.state.meetings[i].openSong}
-                        sacramentHym = {this.state.meetings[i].sacramentHym}
+                        openingSong = {this.state.meetings[i].openingSong}
+                        sacramentHymn = {this.state.meetings[i].sacramentHymn}
                         specialSong = {this.state.meetings[i].specialSong}
                         closingSong = {this.state.meetings[i].closingSong}
                         openingPrayer = {this.state.meetings[i].openingPrayer}
