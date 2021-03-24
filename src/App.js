@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-//Import DumyData Delete After
-import {dummyData} from './dummyData'
-
 //Impor the CSS file
 import "./App.css"
 
@@ -16,24 +13,25 @@ class App extends Component {
 
   //State object to handle the data
   state = {
-    meetings : dummyData,
+    meetings : [],
     meetingDetail : false,
     detailedMeeting : null,
     displayManager: {
       startPoint: 0,
-      endPoint: 5
+      endPoint: 5 
     }
   }
 
-  // //Initiate the request immediately
-  // componentDidMount() {
-  //   fetch('')
-  //   .then(res => res.json())
-  //   .then((data) => {
-  //     this.setState({ meetings: data })
-  //   })
-  //   .catch(console.log)
-  // }
+  //Initiate the request immediately
+  componentDidMount() {
+    fetch("/api/Programs")
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ meetings: data })
+      console.log(data)
+    })
+    .catch()
+  }
 
 
   //Handle the issue details
