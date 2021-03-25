@@ -7,3 +7,7 @@
 .btn {
     width: 150px;
 }
+
+.displayContainer .btnsIterators .btn {
+    width: auto;
+}

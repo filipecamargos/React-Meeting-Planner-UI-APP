@@ -31,11 +31,14 @@ const MeetingDetails = (props) => {
                     <hr />
                     <p className="card-text">Closing Song: {props.closingSong}</p>
                     <p className="card-text">Closing Prayer: {props.closingPrayer}</p>
-                    
+                    <hr />
                 </div>
-                <button onClick={props.backToMeetingsList} className="btn btn-primary"><i class="glyphicon glyphicon-step-backward"></i>Back</button> 
+                <div className="btnsIterators">
+                    <button onClick={props.backToMeetingsList} className="btn btn-secondary"><i className="glyphicon glyphicon-arrow-left"></i></button>
+                    <button onClick={props.backToMeetingsList} className="btn btn-info"><i className="glyphicon glyphicon-pencil"></i></button> 
+                    <button onClick={props.backToMeetingsList} className="btn btn-danger"><i className="glyphicon glyphicon-trash"></i> </button> 
+                </div>
             </div>
-            
         </div>
     );
 }

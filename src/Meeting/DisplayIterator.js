@@ -12,7 +12,7 @@ const DisplayIterator = (props) => {
               <i className="glyphicon glyphicon-chevron-right"></i>
             </button>
             <span>Meetings {props.displayManager.startPoint + 1} -  {props.displayManager.endPoint} | {props.totalPages} </span>
-            <button type="button" class="btn btn-outline-info"><i class="glyphicon glyphicon-plus"></i> New</button>
+            <button type="button" className="btn btn-outline-info"><i className="glyphicon glyphicon-plus"></i> New</button>
           </div>
         </div>
     );
