@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-//Import DumyData Delete After
-import {dummyData} from './dummyData'
-
 //Impor the CSS file
 import "./App.css"
 
@@ -16,24 +13,24 @@ class App extends Component {
 
   //State object to handle the data
   state = {
-    meetings : dummyData,
+    meetings : [],
     meetingDetail : false,
     detailedMeeting : null,
     displayManager: {
       startPoint: 0,
-      endPoint: 5
+      endPoint: 3 
     }
   }
 
-  // //Initiate the request immediately
-  // componentDidMount() {
-  //   fetch('')
-  //   .then(res => res.json())
-  //   .then((data) => {
-  //     this.setState({ meetings: data })
-  //   })
-  //   .catch(console.log)
-  // }
+  //Initiate the request immediately
+  componentDidMount() {
+    fetch("/api/Programs")
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ meetings: data })
+    })
+    .catch()
+  }
 
 
   //Handle the issue details
@@ -62,13 +59,14 @@ class App extends Component {
 
   //Handle next btn
   nextSetMeetings = () => {
-    if(this.state.displayManager.endPoint > this.state.meetings.length) {
+    if(this.state.displayManager.endPoint > this.state.meetings.length ||
+      this.state.displayManager.endPoint === this.state.meetings.length) {
       return;
     }
         //Create a temp state to modify it
         var tempState = {...this.state};
-        tempState.displayManager.startPoint += 5;
-        tempState.displayManager.endPoint += 5;
+        tempState.displayManager.startPoint += 3;
+        tempState.displayManager.endPoint += 3;
 
         //Set the state 
         this.setState({displayManager : tempState.displayManager})
@@ -82,8 +80,8 @@ class App extends Component {
     }
       //Create a temp state to modify it
       var tempState = {...this.state};
-      tempState.displayManager.startPoint -= 5;
-      tempState.displayManager.endPoint -= 5;
+      tempState.displayManager.startPoint -= 3;
+      tempState.displayManager.endPoint -= 3;
 
       //Set the state 
       this.setState({displayManager : tempState.displayManager})

@@ -31,24 +31,16 @@ const MeetingDetails = (props) => {
                     <hr />
                     <p className="card-text">Closing Song: {props.closingSong}</p>
                     <p className="card-text">Closing Prayer: {props.closingPrayer}</p>
-                    
+                    <hr />
                 </div>
-                <button onClick={props.backToMeetingsList} className="btn btn-primary">Back to Meetings</button> 
+                <div className="btnsIterators">
+                    <button onClick={props.backToMeetingsList} className="btn btn-secondary"><i className="glyphicon glyphicon-arrow-left"></i></button>
+                    <button className="btn btn-info"><i className="glyphicon glyphicon-pencil"></i></button> 
+                    <button className="btn btn-danger"><i className="glyphicon glyphicon-trash"></i></button> 
+                </div>
             </div>
-            
         </div>
     );
 }
 
-/**
- *                         openingSong = {this.state.meetingDetail.openingSong}
-              sacramentHymn = {this.state.meetingDetail.sacramentHymn}
-              specialSong = {this.state.meetingDetail.specialSong}
-              closingSong = {this.state.meetingDetail.closingSong}
-              openingPrayer = {this.state.meetingDetail.openingPrayer}
-              closingPrayer = {this.state.meetingDetail.closingPrayer}
-              speakers = {this.state.meetingDetail.speakers}
- */
-
-//Make sure to export the person
 export default MeetingDetails;

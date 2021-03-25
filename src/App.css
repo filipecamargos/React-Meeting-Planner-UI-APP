@@ -32,6 +32,16 @@ body {
     margin-bottom: 15px;
 }
 
+.btnsIterators .btn-info,
+.btn-primary {
+    width: 40px;
+}
+
+.btnsIterators .btn-success {
+    border-radius: 50%;
+    width: auto;
+}
+
 .btnsIterators span {
     margin-left: 15px;
     font-family: 'Roboto', sans-serif;
