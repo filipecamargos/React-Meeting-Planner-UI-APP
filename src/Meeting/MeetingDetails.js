@@ -3,7 +3,7 @@ import React from 'react';
 //Import CSS 
 import './MeetingDetails.css'
 
-//Creat  Person Component that takes issues from App and map to display all the data
+//Create Person Component that takes issues from App and map to display all the data
 const MeetingDetails = (props) => { 
 
     return (

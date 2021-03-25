@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//Impor the CSS file
+//Import the CSS file
 import "./App.css"
 
 //import components
