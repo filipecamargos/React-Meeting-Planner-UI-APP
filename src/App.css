@@ -30,6 +30,7 @@ body {
 .btnsIterators .btn {
     margin-left: 15px;
     margin-bottom: 15px;
+    width: 40px;
 }
 
 .btnsIterators span {
