@@ -15,7 +15,8 @@ const MeetingDetails = (props) => {
                     <p className="card-text">Conductor: {props.conducter}</p>
                     <p className="card-text">Opening Song: {props.openingSong}</p>
                     <p className="card-text">Opening Prayer: {props.openingPrayer}</p>
-                    <hr />
+                    <p className="card-text">Sacrament Song: {props.sacramentHymn}</p>
+                    <hr />                    
                     <p className="card-text">Speakers:</p>
                     {props.speakers.map((person, index) => (
                         <div key={person.name + person.topic}>
@@ -26,7 +27,6 @@ const MeetingDetails = (props) => {
                         </div>
                     ))}
                     <hr />
-                    <p className="card-text">Sacrament Song: {props.sacramentHymn}</p>
                     <p className="card-text">Special Song: {props.specialSong}</p>
                     <hr />
                     <p className="card-text">Closing Song: {props.closingSong}</p>
