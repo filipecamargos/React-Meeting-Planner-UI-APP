@@ -36,7 +36,7 @@ class App extends Component {
   //Handle the issue details
   seeMeetingDetails = (index) => {
     //Create a temp state to modify it
-    var tempState = {...this.state};
+    let tempState = {...this.state};
     tempState.meetingDetail = true;
     tempState.detailedMeeting = this.state.meetings[index]
 
@@ -48,7 +48,7 @@ class App extends Component {
   //Handle back to the list of issue
   backToMeetingsList = () => {
         //Create a temp state to modify it
-        var tempState = {...this.state};
+        let tempState = {...this.state};
         tempState.meetingDetail = false;
         tempState.detailedMeeting = null;
 
@@ -64,7 +64,7 @@ class App extends Component {
       return;
     }
         //Create a temp state to modify it
-        var tempState = {...this.state};
+        let tempState = {...this.state};
         tempState.displayManager.startPoint += 3;
         tempState.displayManager.endPoint += 3;
 
@@ -79,7 +79,7 @@ class App extends Component {
       return;
     }
       //Create a temp state to modify it
-      var tempState = {...this.state};
+      let tempState = {...this.state};
       tempState.displayManager.startPoint -= 3;
       tempState.displayManager.endPoint -= 3;
 
