@@ -32,7 +32,8 @@ body {
     margin-bottom: 15px;
 }
 
-.btnsIterators .btn-info {
+.btnsIterators .btn-info,
+.btn-primary {
     width: 40px;
 }
 

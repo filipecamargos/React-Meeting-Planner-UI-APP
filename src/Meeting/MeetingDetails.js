@@ -33,7 +33,7 @@ const MeetingDetails = (props) => {
                     <p className="card-text">Closing Prayer: {props.closingPrayer}</p>
                     
                 </div>
-                <button onClick={props.backToMeetingsList} className="btn btn-primary">Back to Meetings</button> 
+                <button onClick={props.backToMeetingsList} className="btn btn-primary"><i class="glyphicon glyphicon-step-backward"></i>Back</button> 
             </div>
             
         </div>
