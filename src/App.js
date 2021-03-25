@@ -58,7 +58,10 @@ class App extends Component {
   }
 
   //Handle to delete the meeting
-  
+  deleteMeeting = () => {
+    // do sumfin
+    console.log("test");
+  }
 
   //Handle next btn
   nextSetMeetings = () => {
