@@ -40,15 +40,4 @@ const MeetingDetails = (props) => {
     );
 }
 
-/**
- *                         openingSong = {this.state.meetingDetail.openingSong}
-              sacramentHymn = {this.state.meetingDetail.sacramentHymn}
-              specialSong = {this.state.meetingDetail.specialSong}
-              closingSong = {this.state.meetingDetail.closingSong}
-              openingPrayer = {this.state.meetingDetail.openingPrayer}
-              closingPrayer = {this.state.meetingDetail.closingPrayer}
-              speakers = {this.state.meetingDetail.speakers}
- */
-
-//Make sure to export the person
 export default MeetingDetails;
