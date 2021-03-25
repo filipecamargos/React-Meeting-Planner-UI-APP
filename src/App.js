@@ -62,8 +62,11 @@ class App extends Component {
 
   //Handle to delete the meeting
   deleteMeeting = () => {
-    // do sumfin
+    //Delete Meeting
     console.log("Delete");
+    
+    //Go back to MeetingsList
+    this.backToMeetingsList();
   }
 
   //Handle the add meeting
