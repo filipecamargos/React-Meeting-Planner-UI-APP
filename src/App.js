@@ -45,7 +45,7 @@ class App extends Component {
     this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
-  //Handle back to the list of issue
+  //Handle back to the list of meetings
   backToMeetingsList = () => {
         //Create a temp state to modify it
         let tempState = {...this.state};
@@ -57,8 +57,13 @@ class App extends Component {
         this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
-  //Handle to delete the meeting
+  //Handle the add meeting
+  addNewMeeting = () => {
+    console.log("Meeting");
+  }
+
   
+  //Handle to delete the meeting
 
   //Handle next btn
   nextSetMeetings = () => {
@@ -98,6 +103,7 @@ class App extends Component {
         keys = {[0, 1, 3]}
         displayManager = {this.state.displayManager}
         totalPages = {this.state.meetings.length}
+        clickRefAddNewMeeting = {() => this.addNewMeeting()}
         refnextSetMeetings = {() => this.nextSetMeetings()}
         refPreviousSetMeetings = {() => this.previousSetMeetings()}
       />
