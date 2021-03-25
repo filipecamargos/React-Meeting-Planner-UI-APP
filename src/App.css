@@ -30,7 +30,15 @@ body {
 .btnsIterators .btn {
     margin-left: 15px;
     margin-bottom: 15px;
+}
+
+.btnsIterators .btn-info {
     width: 40px;
+}
+
+.btnsIterators .btn-outline-info {
+    margin-left: 40%;
+    width: auto;
 }
 
 .btnsIterators span {
