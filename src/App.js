@@ -57,6 +57,9 @@ class App extends Component {
         this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
+  //Handle to delete the meeting
+  
+
   //Handle next btn
   nextSetMeetings = () => {
     if(this.state.displayManager.endPoint > this.state.meetings.length ||

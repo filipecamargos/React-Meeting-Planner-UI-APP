@@ -5,7 +5,7 @@ import './MeetingDetails.css'
 
 //Create Person Component that takes issues from App and map to display all the data
 const MeetingDetails = (props) => { 
-
+    
     return (
         <div className="displayContainer">
             <div className="card details">
