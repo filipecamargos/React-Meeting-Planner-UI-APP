@@ -37,8 +37,8 @@ body {
     width: 40px;
 }
 
-.btnsIterators .btn-outline-info {
-    margin-left: 40%;
+.btnsIterators .btn-success {
+    border-radius: 50%;
     width: auto;
 }
 

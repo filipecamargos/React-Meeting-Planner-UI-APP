@@ -5,6 +5,7 @@ const DisplayIterator = (props) => {
     return (
         <div>
           <div className="btnsIterators">
+          <button type="button" className="btn btn-success"><i className="glyphicon glyphicon-plus"></i></button>
             <button type="button" className="btn btn-info" onClick={props.refPreviousSetMeetings}>
               <i className="glyphicon glyphicon-chevron-left"></i> 
             </button>
@@ -12,7 +13,6 @@ const DisplayIterator = (props) => {
               <i className="glyphicon glyphicon-chevron-right"></i>
             </button>
             <span>Meetings {props.displayManager.startPoint + 1} -  {props.displayManager.endPoint} | {props.totalPages} </span>
-            <button type="button" className="btn btn-outline-info"><i className="glyphicon glyphicon-plus"></i> New</button>
           </div>
         </div>
     );
