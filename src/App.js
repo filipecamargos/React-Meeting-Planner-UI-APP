@@ -60,6 +60,12 @@ class App extends Component {
         this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
+  //Handle to delete the meeting
+  deleteMeeting = () => {
+    // do sumfin
+    console.log("Delete");
+  }
+
   //Handle the add meeting
   addNewMeeting = () => {
     //Create a temp state to modify it
@@ -73,8 +79,6 @@ class App extends Component {
     this.setState({detailedMeeting: tempState.detailedMeeting})
     this.setState({addMeeting: tempState.addMeeting})
   }
-
-  //Handle to delete the meeting
 
   //Handle next btn
   nextSetMeetings = () => {
@@ -135,6 +139,7 @@ class App extends Component {
               closingPrayer = {this.state.detailedMeeting.closingPrayer}
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {() => this.backToMeetingsList()}
+              deleteMeeting = {() => this.deleteMeeting()}
             />
         </div>
       )

@@ -36,7 +36,7 @@ const MeetingDetails = (props) => {
                 <div className="btnsIterators">
                     <button onClick={props.backToMeetingsList} className="btn btn-secondary"><i className="glyphicon glyphicon-arrow-left"></i></button>
                     <button className="btn btn-info"><i className="glyphicon glyphicon-pencil"></i></button> 
-                    <button className="btn btn-danger"><i className="glyphicon glyphicon-trash"></i></button> 
+                    <button onClick={props.deleteMeeting} className="btn btn-danger"><i className="glyphicon glyphicon-trash"></i></button> 
                 </div>
             </div>
         </div>
