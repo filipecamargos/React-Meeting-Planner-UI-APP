@@ -18,7 +18,7 @@ class App extends Component {
     detailedMeeting : null,
     displayManager: {
       startPoint: 0,
-      endPoint: 5 
+      endPoint: 3 
     }
   }
 
@@ -64,8 +64,8 @@ class App extends Component {
     }
         //Create a temp state to modify it
         var tempState = {...this.state};
-        tempState.displayManager.startPoint += 5;
-        tempState.displayManager.endPoint += 5;
+        tempState.displayManager.startPoint += 3;
+        tempState.displayManager.endPoint += 3;
 
         //Set the state 
         this.setState({displayManager : tempState.displayManager})
@@ -79,8 +79,8 @@ class App extends Component {
     }
       //Create a temp state to modify it
       var tempState = {...this.state};
-      tempState.displayManager.startPoint -= 5;
-      tempState.displayManager.endPoint -= 5;
+      tempState.displayManager.startPoint -= 3;
+      tempState.displayManager.endPoint -= 3;
 
       //Set the state 
       this.setState({displayManager : tempState.displayManager})
