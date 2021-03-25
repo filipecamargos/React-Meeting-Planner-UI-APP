@@ -60,7 +60,7 @@ class App extends Component {
   //Handle to delete the meeting
   deleteMeeting = () => {
     // do sumfin
-    console.log("test");
+    console.log("Delete");
   }
 
   //Handle the add meeting
@@ -127,6 +127,7 @@ class App extends Component {
               closingPrayer = {this.state.detailedMeeting.closingPrayer}
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {() => this.backToMeetingsList()}
+              deleteMeeting = {() => this.deleteMeeting()}
             />
         </div>
       )
