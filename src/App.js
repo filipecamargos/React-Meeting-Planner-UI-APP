@@ -7,14 +7,16 @@ import "./App.css"
 import Meeting from './Meeting/Meeting';
 import MeetingDetails from './Meeting/MeetingDetails';
 import DisplayIterator from './Meeting/DisplayIterator';
+import AddNewMeeting from './Meeting/AddNewMeeting';
 
 //App Component
 class App extends Component {
 
   //State object to handle the data
   state = {
-    meetings : [],
-    meetingDetail : false,
+    meetings: [],
+    meetingDetail: false,
+    addMeeting: false,
     detailedMeeting : null,
     displayManager: {
       startPoint: 0,
@@ -51,6 +53,7 @@ class App extends Component {
         let tempState = {...this.state};
         tempState.meetingDetail = false;
         tempState.detailedMeeting = null;
+        tempState.addMeeting = false;
 
         //Set the state 
         this.setState({meetingDetail: tempState.meetingDetail})
@@ -59,10 +62,18 @@ class App extends Component {
 
   //Handle the add meeting
   addNewMeeting = () => {
-    console.log("Meeting");
+    //Create a temp state to modify it
+    let tempState = {...this.state};
+    tempState.meetingDetail = false;
+    tempState.detailedMeeting = null;
+    tempState.addMeeting = true;
+
+    //Set the state 
+    this.setState({meetingDetail: tempState.meetingDetail})
+    this.setState({detailedMeeting: tempState.detailedMeeting})
+    this.setState({addMeeting: tempState.addMeeting})
   }
 
-  
   //Handle to delete the meeting
 
   //Handle next btn
@@ -127,31 +138,39 @@ class App extends Component {
             />
         </div>
       )
+    } else if (this.state.addMeeting) {
+      view = (
+        <div key={124}>
+          <AddNewMeeting 
+          />
+        </div>
+      )
+    
     } else {
 
-      //Add the meetings bases on the displayManager
-      for(let i = this.state.displayManager.startPoint; i < this.state.meetings.length; i++)
-      {
-        view.push(
-          <div key={this.state.meetings[i].id}>
-                      <Meeting
-                        clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
-                        date = {this.state.meetings[i].date}
-                        conducter = {this.state.meetings[i].conducter}
-                        openingSong = {this.state.meetings[i].openingSong}
-                        sacramentHymn = {this.state.meetings[i].sacramentHymn}
-                        specialSong = {this.state.meetings[i].specialSong}
-                        closingSong = {this.state.meetings[i].closingSong}
-                        openingPrayer = {this.state.meetings[i].openingPrayer}
-                        closingPrayer = {this.state.meetings[i].closingPrayer}
-                        speakers = {this.state.meetings[i].speakers}
-                      />
-          </div>
-        )
+        //Add the meetings bases on the displayManager
+        for(let i = this.state.displayManager.startPoint; i < this.state.meetings.length; i++)
+        {
+          view.push(
+            <div key={this.state.meetings[i].id}>
+                        <Meeting
+                          clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
+                          date = {this.state.meetings[i].date}
+                          conducter = {this.state.meetings[i].conducter}
+                          openingSong = {this.state.meetings[i].openingSong}
+                          sacramentHymn = {this.state.meetings[i].sacramentHymn}
+                          specialSong = {this.state.meetings[i].specialSong}
+                          closingSong = {this.state.meetings[i].closingSong}
+                          openingPrayer = {this.state.meetings[i].openingPrayer}
+                          closingPrayer = {this.state.meetings[i].closingPrayer}
+                          speakers = {this.state.meetings[i].speakers}
+                        />
+            </div>
+          )
 
-        //Break out of the loop when the last element to be display is reached
-        if (i === this.state.displayManager.endPoint - 1) { break; }
-      }
+          //Break out of the loop when the last element to be display is reached
+          if (i === this.state.displayManager.endPoint - 1) { break; }
+        }
     }
     return (
       <div className="AppContainer">
