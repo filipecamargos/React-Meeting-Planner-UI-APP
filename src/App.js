@@ -157,7 +157,7 @@ class App extends Component {
     } else {
 
         //Add the meetings bases on the displayManager
-        for(let i = this.state.displayManager.startPoint; i < this.state.meetings.length; i++)
+        for (let i = this.state.displayManager.startPoint; i < this.state.meetings.length; i++)
         {
           view.push(
             <div key={this.state.meetings[i].id}>
