@@ -28,7 +28,6 @@ const AddNewMeeting = (props) => {
         for (let i = 0; i < numberOfSpeakers; i++) {
             speakerFields.push(        
                 <div className="speaker" key={i}>
-                    <hr />
                     <label>Speaker</label>
                     <input type="text" className="form-control" placeholder="Speaker" name="speaker"
                         ></input>
@@ -36,7 +35,7 @@ const AddNewMeeting = (props) => {
                     <label>Topic</label>
                     <input type="text" className="form-control" placeholder="Topic" name="topic"
                         ></input>
-                    <hr />
+                    <br />
                 </div>
             )
         }
@@ -111,15 +110,17 @@ const AddNewMeeting = (props) => {
                     <input type="date" className="form-control" id="date" name="date"
                         onChange={e => setDate(e.target.value)} value={date}></input>
                     <hr />
-                    <label htmlFor="numberOfSpeakers">Number of Speakers</label>
+                    <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
                     <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" onChange={e => setNumberOfSpeakers(e.target.value)}>
-                        <option value="" disabled selected>Select your option</option>
+                        <option value="" disabled selected>Number of Speakers</option>
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
+                    <br />
                     {speakerFields}
                     <hr />
                 </div>
