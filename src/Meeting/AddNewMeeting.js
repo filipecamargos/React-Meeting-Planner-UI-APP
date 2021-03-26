@@ -17,6 +17,33 @@ const AddNewMeeting = (props) => {
     const [closingPrayer, setClosingPrayer] = useState();
     const [speakers, setSpeakers] = useState([]); 
     
+    //Handle the number of speakers
+    const [numberOfSpeakers, setNumberOfSpeakers] = useState();
+    
+    //Create a empty speakerField
+    let speakerFields = [];
+
+    //Adjust the DOM with the proper number of speakers
+    if (numberOfSpeakers) {
+        for (let i = 0; i < numberOfSpeakers; i++) {
+            speakerFields.push(        
+                <div className="speaker" key={i}>
+                    <hr />
+                    <label>Speaker</label>
+                    <input type="text" className="form-control" placeholder="Speaker" name="speaker"
+                        ></input>
+                    <br />
+                    <label>Topic</label>
+                    <input type="text" className="form-control" placeholder="Topic" name="topic"
+                        ></input>
+                    <hr />
+                </div>
+            )
+        }
+    }
+    
+
+
     //Do the API call to add the meeting
     const createNewMeeting = (e) => {
         e.preventDefault();
@@ -80,20 +107,21 @@ const AddNewMeeting = (props) => {
                     <label htmlFor="closingPrayer">Closing Prayer</label>
                     <input type="text" className="form-control" placeholder="Closing Prayer" id="closingPrayer" name="closingPrayer"
                         onChange={e => setClosingPrayer(e.target.value)} value={closingPrayer}></input>
-                    <div className="speaker">
-                        <hr />
-                        <label>Speaker</label>
-                        <input type="text" className="form-control" placeholder="Speaker" name="speaker"
-                            ></input>
-                        <br />
-                        <label>Topic</label>
-                        <input type="text" className="form-control" placeholder="Topic" name="topic"
-                            ></input>
-                        <hr />
-                    </div>
                     <label htmlFor="date">Date</label>
                     <input type="date" className="form-control" id="date" name="date"
                         onChange={e => setDate(e.target.value)} value={date}></input>
+                    <hr />
+                    <label htmlFor="numberOfSpeakers">Number of Speakers</label>
+                    <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" onChange={e => setNumberOfSpeakers(e.target.value)}>
+                        <option value="" disabled selected>Select your option</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    {speakerFields}
+                    <hr />
                 </div>
                 <button className="btn btn-primary">Submit</button>
             </form>          
