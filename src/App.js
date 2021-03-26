@@ -61,9 +61,9 @@ class App extends Component {
   }
 
   //Handle to delete the meeting
-  deleteMeeting = () => {
-    //Delete Meeting
-    console.log("Delete");
+  deleteMeeting = id => {
+    //API call to delete meeting
+    fetch("/api/programs/" + id, {method: 'DELETE'});
     
     //Go back to MeetingsList
     this.backToMeetingsList();
@@ -132,8 +132,9 @@ class App extends Component {
       view = (
         <div key={123}>
             <MeetingDetails 
+              id = {this.state.detailedMeeting.id}
               date = {this.state.detailedMeeting.date}
-              conducter = {this.state.detailedMeeting.conducter}
+              conductor = {this.state.detailedMeeting.conductor}
               openingSong = {this.state.detailedMeeting.openingSong}
               sacramentHymn = {this.state.detailedMeeting.sacramentHymn}
               specialSong = {this.state.detailedMeeting.specialSong}
@@ -142,7 +143,7 @@ class App extends Component {
               closingPrayer = {this.state.detailedMeeting.closingPrayer}
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {() => this.backToMeetingsList()}
-              deleteMeeting = {() => this.deleteMeeting()}
+              deleteMeeting = {this.deleteMeeting}
             />
         </div>
       )
@@ -164,7 +165,7 @@ class App extends Component {
                         <Meeting
                           clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
                           date = {this.state.meetings[i].date}
-                          conducter = {this.state.meetings[i].conducter}
+                          conductor = {this.state.meetings[i].conductor}
                           openingSong = {this.state.meetings[i].openingSong}
                           sacramentHymn = {this.state.meetings[i].sacramentHymn}
                           specialSong = {this.state.meetings[i].specialSong}

@@ -12,7 +12,7 @@ const MeetingDetails = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">Meeting Date: {props.date}</h5>
                     <hr />
-                    <p className="card-text">Conductor: {props.conducter}</p>
+                    <p className="card-text">Conductor: {props.conductor}</p>
                     <p className="card-text">Opening Song: {props.openingSong}</p>
                     <p className="card-text">Opening Prayer: {props.openingPrayer}</p>
                     <p className="card-text">Sacrament Song: {props.sacramentHymn}</p>
@@ -34,9 +34,15 @@ const MeetingDetails = (props) => {
                     <hr />
                 </div>
                 <div className="btnsIterators">
-                    <button onClick={props.backToMeetingsList} className="btn btn-secondary"><i className="glyphicon glyphicon-arrow-left"></i></button>
-                    <button className="btn btn-info"><i className="glyphicon glyphicon-pencil"></i></button> 
-                    <button onClick={props.deleteMeeting} className="btn btn-danger"><i className="glyphicon glyphicon-trash"></i></button> 
+                    <button onClick={props.backToMeetingsList} className="btn btn-secondary">
+                        <i className="glyphicon glyphicon-arrow-left"></i>
+                    </button>
+                    <button className="btn btn-info">
+                        <i className="glyphicon glyphicon-pencil"></i>
+                    </button> 
+                    <button onClick={() => props.deleteMeeting(props.id)} className="btn btn-danger">
+                        <i className="glyphicon glyphicon-trash"></i>
+                    </button> 
                 </div>
             </div>
         </div>
