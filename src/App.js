@@ -61,9 +61,9 @@ class App extends Component {
   }
 
   //Handle to delete the meeting
-  deleteMeeting = () => {
-    //Delete Meeting
-    console.log("Delete");
+  deleteMeeting = id => {
+    //API call to delete meeting
+    fetch("/api/programs/" + id, {method: 'DELETE'});
     
     //Go back to MeetingsList
     this.backToMeetingsList();
@@ -132,6 +132,7 @@ class App extends Component {
       view = (
         <div key={123}>
             <MeetingDetails 
+              id = {this.state.detailedMeeting.id}
               date = {this.state.detailedMeeting.date}
               conducter = {this.state.detailedMeeting.conducter}
               openingSong = {this.state.detailedMeeting.openingSong}
@@ -142,7 +143,7 @@ class App extends Component {
               closingPrayer = {this.state.detailedMeeting.closingPrayer}
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {() => this.backToMeetingsList()}
-              deleteMeeting = {() => this.deleteMeeting()}
+              deleteMeeting = {this.deleteMeeting}
             />
         </div>
       )
