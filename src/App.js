@@ -134,7 +134,7 @@ class App extends Component {
             <MeetingDetails 
               id = {this.state.detailedMeeting.id}
               date = {this.state.detailedMeeting.date}
-              conducter = {this.state.detailedMeeting.conducter}
+              conductor = {this.state.detailedMeeting.conductor}
               openingSong = {this.state.detailedMeeting.openingSong}
               sacramentHymn = {this.state.detailedMeeting.sacramentHymn}
               specialSong = {this.state.detailedMeeting.specialSong}
@@ -165,7 +165,7 @@ class App extends Component {
                         <Meeting
                           clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
                           date = {this.state.meetings[i].date}
-                          conducter = {this.state.meetings[i].conducter}
+                          conductor = {this.state.meetings[i].conductor}
                           openingSong = {this.state.meetings[i].openingSong}
                           sacramentHymn = {this.state.meetings[i].sacramentHymn}
                           specialSong = {this.state.meetings[i].specialSong}
