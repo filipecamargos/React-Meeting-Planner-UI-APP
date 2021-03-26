@@ -85,7 +85,7 @@ class App extends Component {
 
   //Handle next btn
   nextSetMeetings = () => {
-    if(this.state.displayManager.endPoint > this.state.meetings.length ||
+    if (this.state.displayManager.endPoint > this.state.meetings.length ||
       this.state.displayManager.endPoint === this.state.meetings.length) {
       return;
     }
@@ -101,7 +101,7 @@ class App extends Component {
   //Handle Previous btn
   previousSetMeetings = () => {
 
-    if(this.state.displayManager.startPoint === 0) {
+    if (this.state.displayManager.startPoint === 0) {
       return;
     }
       //Create a temp state to modify it
@@ -128,7 +128,7 @@ class App extends Component {
     ];
 
     //Set the view based on the state
-    if(this.state.meetingDetail){
+    if (this.state.meetingDetail){
       view = (
         <div key={123}>
             <MeetingDetails 
