@@ -26,8 +26,9 @@ const AddNewMeeting = (props) => {
     //Adjust the DOM with the proper number of speakers
     if (numberOfSpeakers) {
         for (let i = 0; i < numberOfSpeakers; i++) {
-            speakerFields.push(        
-                <div className="speaker" key={i}>
+
+           speakerFields.push(        
+                <div className="speaker" key={i} id={i}>
                     <label>Speaker</label>
                     <input type="text" className="form-control" placeholder="Speaker" name="speaker"
                         ></input>
