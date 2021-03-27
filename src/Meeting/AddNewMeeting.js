@@ -15,13 +15,26 @@ const AddNewMeeting = (props) => {
     const [closingSong, setClosingSong] = useState();
     const [openingPrayer, setOpeningPrayer] = useState();
     const [closingPrayer, setClosingPrayer] = useState();
-    const [speakers, setSpeakers] = useState([]); 
+    const [speakers, setSpeakers] = useState([]);
+
     
-    //Handle the number of speakers
+    //Temp variables to handle the speaker logic adding
+    
+    //Track the number of speaker the user want to use to later update the DOM
     const [numberOfSpeakers, setNumberOfSpeakers] = useState();
-    
+
     //Create a empty speakerField
     let speakerFields = [];
+
+    //Change hased on the speaker
+    const populateSpeakers = (index, speaker) => {
+        console.log(index, speaker);
+    }
+
+    //Handle the topic input
+    const populateSpeakersTopic = (index, topic) => {
+        console.log(index, topic);
+    }
 
     //Adjust the DOM with the proper number of speakers
     if (numberOfSpeakers) {
@@ -31,19 +44,18 @@ const AddNewMeeting = (props) => {
                 <div className="speaker" key={i} id={i}>
                     <label>Speaker</label>
                     <input type="text" className="form-control" placeholder="Speaker" name="speaker"
-                        ></input>
+                        onChange={e => populateSpeakers(i, e.target.value)}></input>
                     <br />
                     <label>Topic</label>
                     <input type="text" className="form-control" placeholder="Topic" name="topic"
-                        ></input>
+                       onChange={e => populateSpeakersTopic(i, e.target.value)}></input>
                     <br />
                 </div>
             )
         }
     }
-    
 
-
+    //
     //Do the API call to add the meeting
     const createNewMeeting = (e) => {
         e.preventDefault();
