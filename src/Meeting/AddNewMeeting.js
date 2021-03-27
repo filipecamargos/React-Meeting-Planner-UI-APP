@@ -109,12 +109,7 @@ const AddNewMeeting = (props) => {
                 closingSong: closingSong,
                 openingPrayer: openingPrayer,
                 closingPrayer: closingPrayer,
-                speakers: [
-                  {
-                    name: "TO DO",
-                    topic: "TODO"
-                  }
-                ]
+                speakers: speakers
             })
         }
 
@@ -175,7 +170,7 @@ const AddNewMeeting = (props) => {
                     {speakerFields}
                     <hr />
                 </div>
-                <button className="btn btn-primary">Submit</button>
+                <button className="btn btn-primary" type="submit">Submit</button>
             </form>          
         </div>
     );
