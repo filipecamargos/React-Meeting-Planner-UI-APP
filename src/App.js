@@ -15,6 +15,7 @@ class App extends Component {
   //State object to handle the data
   state = {
     meetings: [],
+    hymns: [],
     meetingDetail: false,
     addMeeting: false,
     detailedMeeting : null,
@@ -26,12 +27,23 @@ class App extends Component {
 
   //Initiate the request immediately
   componentDidMount() {
+    
+    //Get the programs
     fetch("/api/Programs")
     .then(res => res.json())
     .then((data) => {
       this.setState({ meetings: data })
     })
     .catch()
+
+    //Get the Hymns
+    fetch("/api/Hymns")
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({hymns: data })
+    })
+    .catch()
+
   }
 
 
@@ -150,7 +162,8 @@ class App extends Component {
     } else if (this.state.addMeeting) {
       view = (
         <div key={124}>
-          <AddNewMeeting 
+          <AddNewMeeting
+            hymns = {this.state.hymns} 
           />
         </div>
       )

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 //Import CSS 
 import './AddNewMeeting.css'
@@ -17,7 +17,6 @@ const AddNewMeeting = (props) => {
     const [closingPrayer, setClosingPrayer] = useState();
     const [speakers, setSpeakers] = useState([]);
 
-    
     //Track the number of speaker the user want to use to later update the DOM
     const [numberOfSpeakers, setNumberOfSpeakers] = useState();
 
@@ -132,8 +131,16 @@ const AddNewMeeting = (props) => {
                         onChange={e => setOpeningSong(e.target.value)} value={openingSong}></input>
                     <br />
                     <label htmlFor="sacramentHymn">Sacrament Hymn</label>
-                    <input type="text" className="form-control" placeholder="Sacrament Hymn" id="sacramentHymn" name="sacramentHymn"
-                        onChange={e => setSacramentHymn(e.target.value)} value={sacramentHymn}></input>
+                    <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
+                        onChange={e => setSacramentHymn(e.target.value)}
+                        >
+                        <option value="" disabled selected>Select Hymn</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
                     <label htmlFor="specialSong">Special Song</label>
                     <input type="text" className="form-control" placeholder="Special Song" id="specialSong" name="specialSong"
@@ -178,3 +185,9 @@ const AddNewMeeting = (props) => {
 
 //Make sure to export the person
 export default AddNewMeeting;
+/*
+                    <label htmlFor="sacramentHymn">Sacrament Hymn</label>
+                    <input type="text" className="form-control" placeholder="Sacrament Hymn" id="sacramentHymn" name="sacramentHymn"
+                        onChange={e => setSacramentHymn(e.target.value)} value={sacramentHymn}></input>
+                    <br />
+*/
