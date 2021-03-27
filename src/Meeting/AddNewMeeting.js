@@ -127,14 +127,20 @@ const AddNewMeeting = (props) => {
                         onChange={e => setConductor(e.target.value)} value={conductor}></input>
                     <br />
                     <label htmlFor="openingSong">Opening Song</label>
-                    <input type="text" className="form-control" placeholder="Opening Song" id="openingSong" name="openingSong"
-                        onChange={e => setOpeningSong(e.target.value)} value={openingSong}></input>
+                    <select name="openingSong" id="openingSong" className="form-control" 
+                        onChange={e => setOpeningSong(e.target.value)} value={openingSong}>
+                        <option value="" disabled selected>Select Song</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
-                    <label htmlFor="sacramentHymn">Sacrament Hymn</label>
+                    <label htmlFor="sacramentHymn">Sacrament Song</label>
                     <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
-                        onChange={e => setSacramentHymn(e.target.value)}
-                        >
-                        <option value="" disabled selected>Select Hymn</option>
+                        onChange={e => setSacramentHymn(e.target.value)}>
+                        <option value="" disabled selected>Select Song</option>
                         {
                             props.hymns.map((hymn, index) => (
                                 <option>{hymn}</option>
@@ -143,12 +149,26 @@ const AddNewMeeting = (props) => {
                     </select>
                     <br />
                     <label htmlFor="specialSong">Special Song</label>
-                    <input type="text" className="form-control" placeholder="Special Song" id="specialSong" name="specialSong"
-                        onChange={e => setSpecialSong(e.target.value)} value={specialSong}></input>
+                    <select name="specialSong" id="specialSong" className="form-control" 
+                        onChange={e => setSpecialSong(e.target.value)} value={specialSong}>
+                        <option value="" disabled selected>Select Song</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
                     <label htmlFor="closingSong">Closing Song</label>
-                    <input type="text" className="form-control" placeholder="Closing Song" id="closingSong" name="closingSong"
-                        onChange={e => setClosingSong(e.target.value)} value={closingSong}></input>
+                    <select name="closingSong" id="closingSong" className="form-control" 
+                        onChange={e => setClosingSong(e.target.value)} value={closingSong}>
+                        <option value="" disabled selected>Select Song</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
                     <label htmlFor="openingPrayer">Opening Prayer</label>
                     <input type="text" className="form-control" placeholder="Opening Prayer" id="openingPrayer" name="openingPrayer"
@@ -157,6 +177,7 @@ const AddNewMeeting = (props) => {
                     <label htmlFor="closingPrayer">Closing Prayer</label>
                     <input type="text" className="form-control" placeholder="Closing Prayer" id="closingPrayer" name="closingPrayer"
                         onChange={e => setClosingPrayer(e.target.value)} value={closingPrayer}></input>
+                    <br />
                     <label htmlFor="date">Date</label>
                     <input type="date" className="form-control" id="date" name="date"
                         onChange={e => setDate(e.target.value)} value={date}></input>
@@ -185,9 +206,3 @@ const AddNewMeeting = (props) => {
 
 //Make sure to export the person
 export default AddNewMeeting;
-/*
-                    <label htmlFor="sacramentHymn">Sacrament Hymn</label>
-                    <input type="text" className="form-control" placeholder="Sacrament Hymn" id="sacramentHymn" name="sacramentHymn"
-                        onChange={e => setSacramentHymn(e.target.value)} value={sacramentHymn}></input>
-                    <br />
-*/
