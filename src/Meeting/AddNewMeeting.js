@@ -17,7 +17,6 @@ const AddNewMeeting = (props) => {
     const [closingPrayer, setClosingPrayer] = useState();
     const [speakers, setSpeakers] = useState([]);
 
-    //Temp variables to handle the speaker logic adding
     
     //Track the number of speaker the user want to use to later update the DOM
     const [numberOfSpeakers, setNumberOfSpeakers] = useState();
@@ -28,31 +27,49 @@ const AddNewMeeting = (props) => {
     //Instatiate the speakers based on the number of speaker
     const instatiateSpeakers = (size) => {
 
+        setNumberOfSpeakers(size)
         let tempSpeakerHold = [];
 
+        //Make sure old data in the state is saved
         for (let i = 0; i < size; i++){
-            tempSpeakerHold.push({
-                name: null,
-                topic: null
-            })
+            
+            if(speakers[i]){
+
+                tempSpeakerHold.push({
+                    name: speakers[i].name,
+                    topic: speakers[i].topic
+                })
+
+            } else {
+
+                tempSpeakerHold.push({
+                    name: "",
+                    topic: ""
+                })
+            }
         }
 
         setSpeakers(tempSpeakerHold);
     }
 
-
-    //Change hased on the speaker
+    //Change hased on the speaker input
     const populateSpeakers = (index, speaker) => {
-        console.log(index, speakers);
+
+        //Set the Speakers in the state
         let speakerCopy = [...speakers];
         speakerCopy[index].name = speaker;
 
-        
+        setSpeakers(speakerCopy)
     }
 
-    //Handle the topic input
+    //Change hased on the topic input
     const populateSpeakersTopic = (index, topic) => {
-        console.log(index, topic);
+        
+        //Set the Speakers in the state
+        let speakerCopy = [...speakers];
+        speakerCopy[index].topic = topic;
+
+        setSpeakers(speakerCopy)
     }
 
     //Adjust the DOM with the proper number of speakers
@@ -63,11 +80,11 @@ const AddNewMeeting = (props) => {
                 <div className="speaker" key={i} id={i}>
                     <label>Speaker</label>
                     <input type="text" className="form-control" placeholder="Speaker" name="speaker"
-                        onChange={e => populateSpeakers(i, e.target.value)}></input>
+                        onChange={e => populateSpeakers(i, e.target.value)} value={speakers[i].name}></input>
                     <br />
                     <label>Topic</label>
                     <input type="text" className="form-control" placeholder="Topic" name="topic"
-                       onChange={e => populateSpeakersTopic(i, e.target.value)}></input>
+                        onChange={e => populateSpeakersTopic(i, e.target.value)} value={speakers[i].topic}></input>
                     <br />
                 </div>
             )
@@ -144,7 +161,6 @@ const AddNewMeeting = (props) => {
                     <hr />
                     <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
                     <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" 
-                        onChange={e => setNumberOfSpeakers(e.target.value)}
                         onChange={e => instatiateSpeakers(e.target.value)}
                         >
                         <option value="" disabled selected>Number of Speakers</option>
