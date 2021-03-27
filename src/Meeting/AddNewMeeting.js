@@ -17,7 +17,6 @@ const AddNewMeeting = (props) => {
     const [closingPrayer, setClosingPrayer] = useState();
     const [speakers, setSpeakers] = useState([]);
 
-    
     //Temp variables to handle the speaker logic adding
     
     //Track the number of speaker the user want to use to later update the DOM
@@ -26,9 +25,29 @@ const AddNewMeeting = (props) => {
     //Create a empty speakerField
     let speakerFields = [];
 
+    //Instatiate the speakers based on the number of speaker
+    const instatiateSpeakers = (size) => {
+
+        let tempSpeakerHold = [];
+
+        for (let i = 0; i < size; i++){
+            tempSpeakerHold.push({
+                name: null,
+                topic: null
+            })
+        }
+
+        setSpeakers(tempSpeakerHold);
+    }
+
+
     //Change hased on the speaker
     const populateSpeakers = (index, speaker) => {
-        console.log(index, speaker);
+        console.log(index, speakers);
+        let speakerCopy = [...speakers];
+        speakerCopy[index].name = speaker;
+
+        
     }
 
     //Handle the topic input
@@ -124,7 +143,10 @@ const AddNewMeeting = (props) => {
                         onChange={e => setDate(e.target.value)} value={date}></input>
                     <hr />
                     <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
-                    <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" onChange={e => setNumberOfSpeakers(e.target.value)}>
+                    <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" 
+                        onChange={e => setNumberOfSpeakers(e.target.value)}
+                        onChange={e => instatiateSpeakers(e.target.value)}
+                        >
                         <option value="" disabled selected>Number of Speakers</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
