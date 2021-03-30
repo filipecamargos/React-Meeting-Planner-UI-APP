@@ -117,7 +117,9 @@ const AddNewMeeting = (props) => {
         .then(response => response.json());
 
         //Display a confirmation message
-        swal("Good job!", "You clicked the button!", "success");
+        swal("Added!", "Your Meeting Has Been Added!", "success", {
+            button: "Back to Meetings!",
+        });
 
     }
 
