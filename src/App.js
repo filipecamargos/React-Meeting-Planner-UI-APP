@@ -138,7 +138,6 @@ class App extends Component {
     this.componentDidMount();
   }
 
-
   render() {
     // Determine the view
     let view = [  
@@ -174,6 +173,7 @@ class App extends Component {
         </div>
       )
     } else if (this.state.addMeeting) {
+
       view = (
         <div key={124}>
           <AddNewMeeting
@@ -190,18 +190,13 @@ class App extends Component {
         {
           view.push(
             <div key={this.state.meetings[i].id}>
-                        <Meeting
-                          clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
-                          date = {this.state.meetings[i].date}
-                          conductor = {this.state.meetings[i].conductor}
-                          openingSong = {this.state.meetings[i].openingSong}
-                          sacramentHymn = {this.state.meetings[i].sacramentHymn}
-                          specialSong = {this.state.meetings[i].specialSong}
-                          closingSong = {this.state.meetings[i].closingSong}
-                          openingPrayer = {this.state.meetings[i].openingPrayer}
-                          closingPrayer = {this.state.meetings[i].closingPrayer}
-                          speakers = {this.state.meetings[i].speakers}
-                        />
+              <Meeting
+                clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
+                date = {this.state.meetings[i].date}
+                conductor = {this.state.meetings[i].conductor}
+                openingPrayer = {this.state.meetings[i].openingPrayer}
+                closingPrayer = {this.state.meetings[i].closingPrayer}
+              />
             </div>
           )
 
@@ -209,13 +204,16 @@ class App extends Component {
           if (i === this.state.displayManager.endPoint - 1) { break; }
         }
     }
+
     return (
       <div className="AppContainer">
         <hr />
         <h1>Sacrament Meeting Planner</h1>
         <h2>Easy to Plan!</h2>
         <hr />
-        {view}
+        <div>
+          {view}
+        </div>
       </div> 
     );
   }
