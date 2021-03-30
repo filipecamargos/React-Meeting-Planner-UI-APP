@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import swal from 'sweetalert';
 
 //Import CSS 
 import './AddNewMeeting.css'
@@ -114,6 +115,9 @@ const AddNewMeeting = (props) => {
 
         fetch('/api/Programs', request)
         .then(response => response.json());
+
+        //Display a confirmation message
+        swal("Good job!", "You clicked the button!", "success");
 
     }
 
