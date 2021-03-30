@@ -71,15 +71,6 @@ class App extends Component {
         this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
-  //Handle to delete the meeting
-  deleteMeeting = id => {
-    //API call to delete meeting
-    fetch("/api/programs/" + id, {method: 'DELETE'});
-    
-    //Go back to MeetingsList
-    this.backToMeetingsList();
-  }
-
   //Handle the add meeting
   addNewMeeting = () => {
     //Create a temp state to modify it
@@ -178,6 +169,7 @@ class App extends Component {
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {() => this.backToMeetingsList()}
               deleteMeeting = {this.deleteMeeting}
+              refToResetState = {() => this.resetComponent()}
             />
         </div>
       )
