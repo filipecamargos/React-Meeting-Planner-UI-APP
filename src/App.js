@@ -142,7 +142,7 @@ class App extends Component {
               openingPrayer = {this.state.detailedMeeting.openingPrayer}
               closingPrayer = {this.state.detailedMeeting.closingPrayer}
               speakers = {this.state.detailedMeeting.speakers}
-              backToMeetingsList = {() => this.backToMeetingsList()}
+              backToMeetingsList = {this.backToMeetingsList}
               deleteMeeting = {this.deleteMeeting}
             />
         </div>
