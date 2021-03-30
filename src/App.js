@@ -139,7 +139,7 @@ class App extends Component {
   }
 
   render() {
-    // Determine the view
+    //Determine the view
     let view = [  
       <DisplayIterator key={"tempKey"}
         keys = {[0, 1, 3]}
