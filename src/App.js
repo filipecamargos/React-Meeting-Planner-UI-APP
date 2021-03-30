@@ -15,6 +15,7 @@ class App extends Component {
   //State object to handle the data
   state = {
     meetings: [],
+    hymns: [],
     meetingDetail: false,
     addMeeting: false,
     detailedMeeting : null,
@@ -26,14 +27,24 @@ class App extends Component {
 
   //Initiate the request immediately
   componentDidMount() {
+    
+    //Get the programs
     fetch("/api/Programs")
     .then(res => res.json())
     .then((data) => {
       this.setState({ meetings: data })
     })
     .catch()
-  }
 
+    //Get the Hymns
+    fetch("/api/Hymns")
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({hymns: data })
+    })
+    .catch()
+
+  }
 
   //Handle the issue details
   seeMeetingDetails = (index) => {
@@ -60,15 +71,6 @@ class App extends Component {
         this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
-  //Handle to delete the meeting
-  deleteMeeting = id => {
-    //API call to delete meeting
-    fetch("/api/programs/" + id, {method: 'DELETE'});
-    
-    //Go back to MeetingsList
-    this.backToMeetingsList();
-  }
-
   //Handle the add meeting
   addNewMeeting = () => {
     //Create a temp state to modify it
@@ -85,7 +87,7 @@ class App extends Component {
 
   //Handle next btn
   nextSetMeetings = () => {
-    if(this.state.displayManager.endPoint > this.state.meetings.length ||
+    if (this.state.displayManager.endPoint > this.state.meetings.length ||
       this.state.displayManager.endPoint === this.state.meetings.length) {
       return;
     }
@@ -101,7 +103,7 @@ class App extends Component {
   //Handle Previous btn
   previousSetMeetings = () => {
 
-    if(this.state.displayManager.startPoint === 0) {
+    if (this.state.displayManager.startPoint === 0) {
       return;
     }
       //Create a temp state to modify it
@@ -112,7 +114,29 @@ class App extends Component {
       //Set the state 
       this.setState({displayManager : tempState.displayManager})
   }
-  
+
+  //Reset the state component
+  resetComponent = () => {
+
+    //Original State
+    const temp_state = {
+      meetings: [],
+      hymns: [],
+      meetingDetail: false,
+      addMeeting: false,
+      detailedMeeting : null,
+      displayManager: {
+        startPoint: 0,
+        endPoint: 3 
+      }
+    }
+
+    //Clear the state
+    this.setState(temp_state);
+
+    //Update with the latest data
+    this.componentDidMount();
+  }
 
   render() {
     // Determine the view
@@ -128,7 +152,7 @@ class App extends Component {
     ];
 
     //Set the view based on the state
-    if(this.state.meetingDetail){
+    if (this.state.meetingDetail){
       view = (
         <div key={123}>
             <MeetingDetails 
@@ -144,13 +168,17 @@ class App extends Component {
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {this.backToMeetingsList}
               deleteMeeting = {this.deleteMeeting}
+              refToResetState = {() => this.resetComponent()}
             />
         </div>
       )
     } else if (this.state.addMeeting) {
+
       view = (
         <div key={124}>
-          <AddNewMeeting 
+          <AddNewMeeting
+            hymns = {this.state.hymns} 
+            refToResetState = {() => this.resetComponent()}
           />
         </div>
       )
@@ -162,18 +190,13 @@ class App extends Component {
         {
           view.push(
             <div key={this.state.meetings[i].id}>
-                        <Meeting
-                          clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
-                          date = {this.state.meetings[i].date}
-                          conductor = {this.state.meetings[i].conductor}
-                          openingSong = {this.state.meetings[i].openingSong}
-                          sacramentHymn = {this.state.meetings[i].sacramentHymn}
-                          specialSong = {this.state.meetings[i].specialSong}
-                          closingSong = {this.state.meetings[i].closingSong}
-                          openingPrayer = {this.state.meetings[i].openingPrayer}
-                          closingPrayer = {this.state.meetings[i].closingPrayer}
-                          speakers = {this.state.meetings[i].speakers}
-                        />
+              <Meeting
+                clickRefMeetingDetail = {() => this.seeMeetingDetails(i)}
+                date = {this.state.meetings[i].date}
+                conductor = {this.state.meetings[i].conductor}
+                openingPrayer = {this.state.meetings[i].openingPrayer}
+                closingPrayer = {this.state.meetings[i].closingPrayer}
+              />
             </div>
           )
 
@@ -181,13 +204,16 @@ class App extends Component {
           if (i === this.state.displayManager.endPoint - 1) { break; }
         }
     }
+
     return (
       <div className="AppContainer">
         <hr />
         <h1>Sacrament Meeting Planner</h1>
         <h2>Easy to Plan!</h2>
         <hr />
-        {view}
+        <div>
+          {view}
+        </div>
       </div> 
     );
   }

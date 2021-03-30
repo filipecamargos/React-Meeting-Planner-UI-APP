@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 
 //Import CSS 
 import './MeetingDetails.css'
@@ -6,6 +7,39 @@ import './MeetingDetails.css'
 //Create Person Component that takes issues from App and map to display all the data
 const MeetingDetails = (props) => { 
     
+    //Handle to delete the meeting
+    const deleteMeeting = () => {
+
+        //Display an alert message
+        swal({
+            title: "Are you sure you want to delete " + props.date + " meeting?",
+            text: "Once deleted, you will not be able to recover it!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            delete: false
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+            //API call to delete meeting
+            fetch("/api/programs/" + props.id, {method: 'DELETE'});
+
+            //Display a confirmation message
+            swal(props.date + " Meeting", "Sucessfully Deleted!", "success", {
+                button: "Back to Meetings!",
+
+            }).then((backToMeeting) => {
+                
+                if (backToMeeting) {
+                    //Call the state reset
+                    props.refToResetState();
+                }
+            })} else {
+                swal("Canceled Sucessfully!");
+            }
+        });
+    }
+
     return (
         <div className="displayContainer">
             <div className="card details">
@@ -40,7 +74,7 @@ const MeetingDetails = (props) => {
                     <button className="btn btn-info">
                         <i className="glyphicon glyphicon-pencil"></i>
                     </button> 
-                    <button onClick={() => props.deleteMeeting(props.id)} className="btn btn-danger">
+                    <button onClick={e => deleteMeeting()} className="btn btn-danger">
                         <i className="glyphicon glyphicon-trash"></i>
                     </button> 
                 </div>

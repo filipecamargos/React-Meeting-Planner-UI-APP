@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import swal from 'sweetalert';
 
 //Import CSS 
 import './AddNewMeeting.css'
@@ -15,8 +16,82 @@ const AddNewMeeting = (props) => {
     const [closingSong, setClosingSong] = useState();
     const [openingPrayer, setOpeningPrayer] = useState();
     const [closingPrayer, setClosingPrayer] = useState();
-    const [speakers, setSpeakers] = useState([]); 
-    
+    const [speakers, setSpeakers] = useState([]);
+
+    //Track the number of speaker the user want to use to later update the DOM
+    const [numberOfSpeakers, setNumberOfSpeakers] = useState();
+
+    //Create a empty speakerField
+    let speakerFields = [];
+
+    //Instatiate the speakers based on the number of speaker
+    const instatiateSpeakers = (size) => {
+
+        setNumberOfSpeakers(size)
+        let tempSpeakerHold = [];
+
+        //Make sure old data in the state is saved
+        for (let i = 0; i < size; i++){
+            
+            if(speakers[i]){
+
+                tempSpeakerHold.push({
+                    name: speakers[i].name,
+                    topic: speakers[i].topic
+                })
+
+            } else {
+
+                tempSpeakerHold.push({
+                    name: "",
+                    topic: ""
+                })
+            }
+        }
+
+        setSpeakers(tempSpeakerHold);
+    }
+
+    //Change hased on the speaker input
+    const populateSpeakers = (index, speaker) => {
+
+        //Set the Speakers in the state
+        let speakerCopy = [...speakers];
+        speakerCopy[index].name = speaker;
+
+        setSpeakers(speakerCopy)
+    }
+
+    //Change hased on the topic input
+    const populateSpeakersTopic = (index, topic) => {
+        
+        //Set the Speakers in the state
+        let speakerCopy = [...speakers];
+        speakerCopy[index].topic = topic;
+
+        setSpeakers(speakerCopy)
+    }
+
+    //Adjust the DOM with the proper number of speakers
+    if (numberOfSpeakers) {
+        for (let i = 0; i < numberOfSpeakers; i++) {
+
+           speakerFields.push(        
+                <div className="speaker" key={i} id={i}>
+                    <label>Speaker</label>
+                    <input type="text" className="form-control" placeholder="Speaker" name="speaker"
+                        onChange={e => populateSpeakers(i, e.target.value)} value={speakers[i].name}></input>
+                    <br />
+                    <label>Topic</label>
+                    <input type="text" className="form-control" placeholder="Topic" name="topic"
+                        onChange={e => populateSpeakersTopic(i, e.target.value)} value={speakers[i].topic}></input>
+                    <br />
+                </div>
+            )
+        }
+    }
+
+    //
     //Do the API call to add the meeting
     const createNewMeeting = (e) => {
         e.preventDefault();
@@ -34,18 +109,27 @@ const AddNewMeeting = (props) => {
                 closingSong: closingSong,
                 openingPrayer: openingPrayer,
                 closingPrayer: closingPrayer,
-                speakers: [
-                  {
-                    name: "TO DO",
-                    topic: "TODO"
-                  }
-                ]
+                speakers: speakers
             })
         }
 
+        //Call the end point
         fetch('/api/Programs', request)
-        .then(response => response.json());
+        .then(
+            
+            //Display a confirmation message
+            swal(date + " Meeting", "Sucessfully Added!", "success", {
+                button: "Back to Meetings!",
 
+            }).then((backToMeeting) => {
+                
+                if (backToMeeting) {
+
+                    //Call the state reset
+                    props.refToResetState();
+                }
+            })
+        );
     }
 
     return (
@@ -58,20 +142,48 @@ const AddNewMeeting = (props) => {
                         onChange={e => setConductor(e.target.value)} value={conductor}></input>
                     <br />
                     <label htmlFor="openingSong">Opening Song</label>
-                    <input type="text" className="form-control" placeholder="Opening Song" id="openingSong" name="openingSong"
-                        onChange={e => setOpeningSong(e.target.value)} value={openingSong}></input>
+                    <select name="openingSong" id="openingSong" className="form-control" 
+                        onChange={e => setOpeningSong(e.target.value)} value={openingSong}>
+                        <option value="" disabled selected>Select Song</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
-                    <label htmlFor="sacramentHymn">Sacrament Hymn</label>
-                    <input type="text" className="form-control" placeholder="Sacrament Hymn" id="sacramentHymn" name="sacramentHymn"
-                        onChange={e => setSacramentHymn(e.target.value)} value={sacramentHymn}></input>
+                    <label htmlFor="sacramentHymn">Sacrament Song</label>
+                    <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
+                        onChange={e => setSacramentHymn(e.target.value)}>
+                        <option value="" disabled selected>Select Song</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
                     <label htmlFor="specialSong">Special Song</label>
-                    <input type="text" className="form-control" placeholder="Special Song" id="specialSong" name="specialSong"
-                        onChange={e => setSpecialSong(e.target.value)} value={specialSong}></input>
+                    <select name="specialSong" id="specialSong" className="form-control" 
+                        onChange={e => setSpecialSong(e.target.value)} value={specialSong}>
+                        <option value="" disabled selected>Select Song</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
                     <label htmlFor="closingSong">Closing Song</label>
-                    <input type="text" className="form-control" placeholder="Closing Song" id="closingSong" name="closingSong"
-                        onChange={e => setClosingSong(e.target.value)} value={closingSong}></input>
+                    <select name="closingSong" id="closingSong" className="form-control" 
+                        onChange={e => setClosingSong(e.target.value)} value={closingSong}>
+                        <option value="" disabled selected>Select Song</option>
+                        {
+                            props.hymns.map((hymn, index) => (
+                                <option>{hymn}</option>
+                            ))
+                        }
+                    </select>
                     <br />
                     <label htmlFor="openingPrayer">Opening Prayer</label>
                     <input type="text" className="form-control" placeholder="Opening Prayer" id="openingPrayer" name="openingPrayer"
@@ -80,22 +192,28 @@ const AddNewMeeting = (props) => {
                     <label htmlFor="closingPrayer">Closing Prayer</label>
                     <input type="text" className="form-control" placeholder="Closing Prayer" id="closingPrayer" name="closingPrayer"
                         onChange={e => setClosingPrayer(e.target.value)} value={closingPrayer}></input>
-                    <div className="speaker">
-                        <hr />
-                        <label>Speaker</label>
-                        <input type="text" className="form-control" placeholder="Speaker" name="speaker"
-                            ></input>
-                        <br />
-                        <label>Topic</label>
-                        <input type="text" className="form-control" placeholder="Topic" name="topic"
-                            ></input>
-                        <hr />
-                    </div>
+                    <br />
                     <label htmlFor="date">Date</label>
                     <input type="date" className="form-control" id="date" name="date"
                         onChange={e => setDate(e.target.value)} value={date}></input>
+                    <hr />
+                    <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
+                    <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" 
+                        onChange={e => instatiateSpeakers(e.target.value)}
+                        >
+                        <option value="" disabled selected>Number of Speakers</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <br />
+                    {speakerFields}
+                    <hr />
                 </div>
-                <button className="btn btn-primary">Submit</button>
+                <button className="btn btn-primary" type="submit">Submit</button>
             </form>          
         </div>
     );
