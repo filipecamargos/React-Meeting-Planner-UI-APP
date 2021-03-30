@@ -12,7 +12,7 @@ const MeetingDetails = (props) => {
 
         //Display an alert message
         swal({
-            title: "Are you sure on deleting this meeting?",
+            title: "Are you sure you want to delete " + props.date + " meeting?",
             text: "Once deleted, you will not be able to recover it!",
             icon: "warning",
             buttons: true,
@@ -21,17 +21,20 @@ const MeetingDetails = (props) => {
         })
         .then((willDelete) => {
             if (willDelete) {
-            swal("Meeting has been deleted!", {
-                icon: "success",
-            });
-
             //API call to delete meeting
             fetch("/api/programs/" + props.id, {method: 'DELETE'});
 
-            //Call the state reset
-            props.refToResetState();
+            //Display a confirmation message
+            swal(props.date + " Meeting", "Sucessfully Deleted!", "success", {
+                button: "Back to Meetings!",
 
-            } else {
+            }).then((backToMeeting) => {
+                
+                if (backToMeeting) {
+                    //Call the state reset
+                    props.refToResetState();
+                }
+            })} else {
                 swal("Canceled Sucessfully!");
             }
         });
