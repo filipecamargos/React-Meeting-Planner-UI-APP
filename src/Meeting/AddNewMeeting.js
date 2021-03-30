@@ -121,6 +121,9 @@ const AddNewMeeting = (props) => {
             button: "Back to Meetings!",
         });
 
+        //Call the state reset
+        props.refToResetState();
+
     }
 
     return (

@@ -46,7 +46,6 @@ class App extends Component {
 
   }
 
-
   //Handle the issue details
   seeMeetingDetails = (index) => {
     //Create a temp state to modify it
@@ -124,7 +123,30 @@ class App extends Component {
       //Set the state 
       this.setState({displayManager : tempState.displayManager})
   }
-  
+
+  //Reset the state component
+  resetComponent = () => {
+
+    //Original State
+    const temp_state = {
+      meetings: [],
+      hymns: [],
+      meetingDetail: false,
+      addMeeting: false,
+      detailedMeeting : null,
+      displayManager: {
+        startPoint: 0,
+        endPoint: 3 
+      }
+    }
+
+    //Clear the state
+    this.setState(temp_state);
+
+    //Update with the latest data
+    this.componentDidMount();
+  }
+
 
   render() {
     // Determine the view
@@ -164,6 +186,7 @@ class App extends Component {
         <div key={124}>
           <AddNewMeeting
             hymns = {this.state.hymns} 
+            refToResetState = {() => this.resetComponent()}
           />
         </div>
       )
