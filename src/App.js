@@ -167,7 +167,6 @@ class App extends Component {
               closingPrayer = {this.state.detailedMeeting.closingPrayer}
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {this.backToMeetingsList}
-              deleteMeeting = {this.deleteMeeting}
               refToResetState = {() => this.resetComponent()}
             />
         </div>
