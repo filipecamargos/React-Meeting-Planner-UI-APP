@@ -115,16 +115,21 @@ const AddNewMeeting = (props) => {
 
         //Call the end point
         fetch('/api/Programs', request)
-        .then(response => response.json());
+        .then(
+            
+            //Display a confirmation message
+            swal(date + " Meeting", "Sucessfully Added!", "success", {
+                button: "Back to Meetings!",
 
-        //Display a confirmation message
-        swal("Added!", "Your Meeting Has Been Added!", "success", {
-            button: "Back to Meetings!",
-        })
+            }).then((backToMeeting) => {
                 
-        //Call the state reset
-        props.refToResetState();
+                if (backToMeeting) {
 
+                    //Call the state reset
+                    props.refToResetState();
+                }
+            })
+        );
     }
 
     return (
