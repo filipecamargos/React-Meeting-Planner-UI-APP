@@ -8,7 +8,7 @@ import './MeetingDetails.css'
 const MeetingDetails = (props) => { 
     
     //Handle to delete the meeting
-    const deleteMeeting = id => {
+    const deleteMeeting = () => {
 
         //Display an alert message
         swal({
@@ -17,20 +17,24 @@ const MeetingDetails = (props) => {
             icon: "warning",
             buttons: true,
             dangerMode: true,
+            delete: false
         })
         .then((willDelete) => {
             if (willDelete) {
             swal("Meeting has been deleted!", {
                 icon: "success",
             });
+
+            //API call to delete meeting
+            fetch("/api/programs/" + props.id, {method: 'DELETE'});
+
+            //Call the state reset
+            props.refToResetState();
+
             } else {
-            swal("Canceled Sucessfully!");
-            return;
+                swal("Canceled Sucessfully!");
             }
         });
-
-        //API call to delete meeting
-        fetch("/api/programs/" + id, {method: 'DELETE'});
     }
 
     return (
@@ -67,7 +71,7 @@ const MeetingDetails = (props) => {
                     <button className="btn btn-info">
                         <i className="glyphicon glyphicon-pencil"></i>
                     </button> 
-                    <button onClick={e => deleteMeeting(props.id)} className="btn btn-danger">
+                    <button onClick={e => deleteMeeting()} className="btn btn-danger">
                         <i className="glyphicon glyphicon-trash"></i>
                     </button> 
                 </div>
