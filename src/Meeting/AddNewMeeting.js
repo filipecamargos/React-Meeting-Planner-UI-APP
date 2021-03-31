@@ -80,11 +80,11 @@ const AddNewMeeting = (props) => {
                 <div className="speaker" key={i} id={i}>
                     <label>Speaker</label>
                     <input type="text" className="form-control" placeholder="Speaker" name="speaker"
-                        onChange={e => populateSpeakers(i, e.target.value)} value={speakers[i].name}></input>
+                        onChange={e => populateSpeakers(i, e.target.value)} value={speakers[i].name} required></input>
                     <br />
                     <label>Topic</label>
                     <input type="text" className="form-control" placeholder="Topic" name="topic"
-                        onChange={e => populateSpeakersTopic(i, e.target.value)} value={speakers[i].topic}></input>
+                        onChange={e => populateSpeakersTopic(i, e.target.value)} value={speakers[i].topic} required></input>
                     <br />
                 </div>
             )
@@ -139,11 +139,11 @@ const AddNewMeeting = (props) => {
                     <div className="two-inputs-div">
                         <label htmlFor="conductor">Conductor</label>
                         <input type="text" className="form-control" placeholder="Conductor" id="conductor" name="conductor"
-                            onChange={e => setConductor(e.target.value)} value={conductor}></input>
+                            onChange={e => setConductor(e.target.value)} value={conductor} required></input>
                         <br />
                         <label htmlFor="openingSong">Opening Song</label>
                         <select name="openingSong" id="openingSong" className="form-control" 
-                            onChange={e => setOpeningSong(e.target.value)} value={openingSong}>
+                            onChange={e => setOpeningSong(e.target.value)} value={openingSong} required>
                             <option value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
@@ -156,7 +156,7 @@ const AddNewMeeting = (props) => {
                     <div className="two-inputs-div">
                         <label htmlFor="sacramentHymn">Sacrament Song</label>
                         <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
-                            onChange={e => setSacramentHymn(e.target.value)}>
+                            onChange={e => setSacramentHymn(e.target.value)} required>
                             <option value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
@@ -167,7 +167,7 @@ const AddNewMeeting = (props) => {
                         <br />
                         <label htmlFor="specialSong">Special Song</label>
                         <select name="specialSong" id="specialSong" className="form-control" 
-                            onChange={e => setSpecialSong(e.target.value)} value={specialSong}>
+                            onChange={e => setSpecialSong(e.target.value)} value={specialSong} required>
                             <option value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
@@ -180,7 +180,7 @@ const AddNewMeeting = (props) => {
                     <div className="two-inputs-div">
                         <label htmlFor="closingSong">Closing Song</label>
                         <select name="closingSong" id="closingSong" className="form-control" 
-                            onChange={e => setClosingSong(e.target.value)} value={closingSong}>
+                            onChange={e => setClosingSong(e.target.value)} value={closingSong} required>
                             <option value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
@@ -191,23 +191,22 @@ const AddNewMeeting = (props) => {
                         <br />
                         <label htmlFor="openingPrayer">Opening Prayer</label>
                         <input type="text" className="form-control" placeholder="Opening Prayer" id="openingPrayer" name="openingPrayer"
-                            onChange={e => setOpeningPrayer(e.target.value)} value={openingPrayer}></input>
+                            onChange={e => setOpeningPrayer(e.target.value)} value={openingPrayer} required></input>
                         <br />
                     </div>
                     <div className="two-inputs-div">
                         <label htmlFor="closingPrayer">Closing Prayer</label>
                         <input type="text" className="form-control" placeholder="Closing Prayer" id="closingPrayer" name="closingPrayer"
-                            onChange={e => setClosingPrayer(e.target.value)} value={closingPrayer}></input>
+                            onChange={e => setClosingPrayer(e.target.value)} value={closingPrayer} required></input>
                         <br />
                         <label htmlFor="date">Date</label>
                         <input type="date" className="form-control" id="date" name="date"
-                            onChange={e => setDate(e.target.value)} value={date}></input>
+                            onChange={e => setDate(e.target.value)} value={date} required></input>
                     </div>
                     <div className="two-inputs-div">
                         <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
                         <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" 
-                            onChange={e => instatiateSpeakers(e.target.value)}
-                            >
+                            onChange={e => instatiateSpeakers(e.target.value)} required>
                             <option value="" disabled selected>Number of Speakers</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
