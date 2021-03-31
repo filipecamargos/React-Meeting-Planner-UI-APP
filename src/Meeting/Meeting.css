@@ -3,23 +3,3 @@
     cursor: pointer;
     border-radius: 2px;
 }
-
-.form-control {
-    width: 200px;
-}
-
-.myForm {
-    text-align: center;
-}
-
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    width: 440px;
-    margin: 0 auto 0;
-    text-align: left;
-}
-
-.two-inputs-div {
-    margin-right: 10px;
-}

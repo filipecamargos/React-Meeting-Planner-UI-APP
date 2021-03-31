@@ -135,8 +135,6 @@ const AddNewMeeting = (props) => {
     return (
         <div>
             <form onSubmit={e => {createNewMeeting(e)}} className="myForm">
-                <h3>New Meeting</h3>
-                <hr />
                 <div className="form-group">
                     <div className="two-inputs-div">
                         <label htmlFor="conductor">Conductor</label>
@@ -220,9 +218,9 @@ const AddNewMeeting = (props) => {
                         </select>
                         <br />
                         {speakerFields}
+                        <button className="btn btn-success" type="submit">Add Meeting</button>
                     </div>
                 </div>
-                <button className="btn btn-success" type="submit">Add Meeting</button>
             </form>          
         </div>
     );
