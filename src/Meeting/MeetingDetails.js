@@ -42,7 +42,7 @@ const MeetingDetails = (props) => {
 
     //Meeting Details
     const meetingDetais = (
-            <div className="card details">
+            <div className="card details" id="card-details">
                 <div className="card-body">
                     <h5 className="card-title">Meeting Date: {props.date}</h5>
                     <hr />
@@ -84,16 +84,16 @@ const MeetingDetails = (props) => {
     //Print Meeting
     const printMeeting = () => {
         
-        var divContents = document.getElementById("GFG").innerHTML;
-        var a = window.open('', '', 'height=500, width=500');
-        a.document.write('<html>');
-        a.document.write('<body > <h1>Div contents are <br>');
-        a.document.write(divContents);
+        let meetingProgram = document.getElementById("card-details");
+        let a = window.open();
+        a.document.write('<html><body >');
+        a.document.write(meetingProgram.innerHTML);
         a.document.write('</body></html>');
         a.document.close();
         a.print();
     }
 
+    //Return the page to be displayed
     return (
         <div className="displayContainer">
             {meetingDetais}
