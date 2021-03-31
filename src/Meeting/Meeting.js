@@ -11,7 +11,7 @@ const Meeting = (props) => {
             <div className="card" className="overEffect" onClick={props.clickRefMeetingDetail}>
                 <div className="card-body">
                     <h5 className="card-title">Meeting Date: {props.date}</h5>
-                    <p className="card-text">conductor: {props.conductor}</p>
+                    <p className="card-text">Conductor: {props.conductor}</p>
                     <p className="card-text">Opening Prayer: {props.openingPrayer}</p>
                     <p className="card-text">Closing Prayer: {props.closingPrayer}</p>
                 </div>

@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 body {
     padding: 15px;
-    background-color: #D3D3D3;
+    background-color: #E8E8E8;
 }
 
 .AppContainer {
-    width: 78%;
+    width: 70%;
     padding: 13px;
     margin: auto;
     background-color: #ffffff;
-    border-radius: 2px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .AppContainer h1 {
@@ -50,6 +51,6 @@ body {
 }
 
 .overEffect {
-    animation: slideInRight;
-    animation-duration: 2s;
+    animation: fadeIn;
+    animation-duration: 2.5s;
 }
