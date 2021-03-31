@@ -218,10 +218,15 @@ const AddNewMeeting = (props) => {
                         </select>
                         <br />
                         {speakerFields}
-                        <button className="btn btn-success" type="submit">Add Meeting</button>
+                        <div>
+                            <button className="btn btn-success" type="submit">Add Meeting</button>
+                        </div>
                     </div>
                 </div>
-            </form>          
+            </form>
+            <button onClick={e => props.refToResetState()} className="btn btn-secondary">
+                <i className="glyphicon glyphicon-arrow-left"></i>
+            </button>     
         </div>
     );
 }
