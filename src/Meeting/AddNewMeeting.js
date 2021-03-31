@@ -134,86 +134,95 @@ const AddNewMeeting = (props) => {
 
     return (
         <div>
-            <form onSubmit={e => {createNewMeeting(e)}}>
+            <form onSubmit={e => {createNewMeeting(e)}} className="myForm">
                 <h3>New Meeting</h3>
+                <hr />
                 <div className="form-group">
-                    <label htmlFor="conductor">Conductor</label>
-                    <input type="text" className="form-control" placeholder="Conductor" id="conductor" name="conductor"
-                        onChange={e => setConductor(e.target.value)} value={conductor}></input>
-                    <br />
-                    <label htmlFor="openingSong">Opening Song</label>
-                    <select name="openingSong" id="openingSong" className="form-control" 
-                        onChange={e => setOpeningSong(e.target.value)} value={openingSong}>
-                        <option value="" disabled selected>Select Song</option>
-                        {
-                            props.hymns.map((hymn, index) => (
-                                <option>{hymn}</option>
-                            ))
-                        }
-                    </select>
-                    <br />
-                    <label htmlFor="sacramentHymn">Sacrament Song</label>
-                    <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
-                        onChange={e => setSacramentHymn(e.target.value)}>
-                        <option value="" disabled selected>Select Song</option>
-                        {
-                            props.hymns.map((hymn, index) => (
-                                <option>{hymn}</option>
-                            ))
-                        }
-                    </select>
-                    <br />
-                    <label htmlFor="specialSong">Special Song</label>
-                    <select name="specialSong" id="specialSong" className="form-control" 
-                        onChange={e => setSpecialSong(e.target.value)} value={specialSong}>
-                        <option value="" disabled selected>Select Song</option>
-                        {
-                            props.hymns.map((hymn, index) => (
-                                <option>{hymn}</option>
-                            ))
-                        }
-                    </select>
-                    <br />
-                    <label htmlFor="closingSong">Closing Song</label>
-                    <select name="closingSong" id="closingSong" className="form-control" 
-                        onChange={e => setClosingSong(e.target.value)} value={closingSong}>
-                        <option value="" disabled selected>Select Song</option>
-                        {
-                            props.hymns.map((hymn, index) => (
-                                <option>{hymn}</option>
-                            ))
-                        }
-                    </select>
-                    <br />
-                    <label htmlFor="openingPrayer">Opening Prayer</label>
-                    <input type="text" className="form-control" placeholder="Opening Prayer" id="openingPrayer" name="openingPrayer"
-                        onChange={e => setOpeningPrayer(e.target.value)} value={openingPrayer}></input>
-                    <br />
-                    <label htmlFor="closingPrayer">Closing Prayer</label>
-                    <input type="text" className="form-control" placeholder="Closing Prayer" id="closingPrayer" name="closingPrayer"
-                        onChange={e => setClosingPrayer(e.target.value)} value={closingPrayer}></input>
-                    <br />
-                    <label htmlFor="date">Date</label>
-                    <input type="date" className="form-control" id="date" name="date"
-                        onChange={e => setDate(e.target.value)} value={date}></input>
-                    <hr />
-                    <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
-                    <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" 
-                        onChange={e => instatiateSpeakers(e.target.value)}
-                        >
-                        <option value="" disabled selected>Number of Speakers</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <br />
-                    {speakerFields}
-                    <hr />
+                    <div className="two-inputs-div">
+                        <label htmlFor="conductor">Conductor</label>
+                        <input type="text" className="form-control" placeholder="Conductor" id="conductor" name="conductor"
+                            onChange={e => setConductor(e.target.value)} value={conductor}></input>
+                        <br />
+                        <label htmlFor="openingSong">Opening Song</label>
+                        <select name="openingSong" id="openingSong" className="form-control" 
+                            onChange={e => setOpeningSong(e.target.value)} value={openingSong}>
+                            <option value="" disabled selected>Select Song</option>
+                            {
+                                props.hymns.map((hymn, index) => (
+                                    <option>{hymn}</option>
+                                ))
+                            }
+                        </select>
+                        <br />
+                    </div>
+                    <div className="two-inputs-div">
+                        <label htmlFor="sacramentHymn">Sacrament Song</label>
+                        <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
+                            onChange={e => setSacramentHymn(e.target.value)}>
+                            <option value="" disabled selected>Select Song</option>
+                            {
+                                props.hymns.map((hymn, index) => (
+                                    <option>{hymn}</option>
+                                ))
+                            }
+                        </select>
+                        <br />
+                        <label htmlFor="specialSong">Special Song</label>
+                        <select name="specialSong" id="specialSong" className="form-control" 
+                            onChange={e => setSpecialSong(e.target.value)} value={specialSong}>
+                            <option value="" disabled selected>Select Song</option>
+                            {
+                                props.hymns.map((hymn, index) => (
+                                    <option>{hymn}</option>
+                                ))
+                            }
+                        </select>
+                        <br />
+                    </div>
+                    <div className="two-inputs-div">
+                        <label htmlFor="closingSong">Closing Song</label>
+                        <select name="closingSong" id="closingSong" className="form-control" 
+                            onChange={e => setClosingSong(e.target.value)} value={closingSong}>
+                            <option value="" disabled selected>Select Song</option>
+                            {
+                                props.hymns.map((hymn, index) => (
+                                    <option>{hymn}</option>
+                                ))
+                            }
+                        </select>
+                        <br />
+                        <label htmlFor="openingPrayer">Opening Prayer</label>
+                        <input type="text" className="form-control" placeholder="Opening Prayer" id="openingPrayer" name="openingPrayer"
+                            onChange={e => setOpeningPrayer(e.target.value)} value={openingPrayer}></input>
+                        <br />
+                    </div>
+                    <div className="two-inputs-div">
+                        <label htmlFor="closingPrayer">Closing Prayer</label>
+                        <input type="text" className="form-control" placeholder="Closing Prayer" id="closingPrayer" name="closingPrayer"
+                            onChange={e => setClosingPrayer(e.target.value)} value={closingPrayer}></input>
+                        <br />
+                        <label htmlFor="date">Date</label>
+                        <input type="date" className="form-control" id="date" name="date"
+                            onChange={e => setDate(e.target.value)} value={date}></input>
+                    </div>
+                    <div className="two-inputs-div">
+                        <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
+                        <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" 
+                            onChange={e => instatiateSpeakers(e.target.value)}
+                            >
+                            <option value="" disabled selected>Number of Speakers</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <br />
+                        {speakerFields}
+                    </div>
                 </div>
-                <button className="btn btn-primary" type="submit">Submit</button>
+                <button className="btn btn-success" type="submit">Add Meeting</button>
             </form>          
         </div>
     );
