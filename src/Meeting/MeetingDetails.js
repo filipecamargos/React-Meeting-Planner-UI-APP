@@ -40,8 +40,8 @@ const MeetingDetails = (props) => {
         });
     }
 
-    return (
-        <div className="displayContainer">
+    //Meeting Details
+    const meetingDetais = (
             <div className="card details">
                 <div className="card-body">
                     <h5 className="card-title">Meeting Date: {props.date}</h5>
@@ -74,9 +74,30 @@ const MeetingDetails = (props) => {
                     <button onClick={e => deleteMeeting()} className="btn btn-danger">
                         <i className="glyphicon glyphicon-trash"></i>
                     </button> 
+                    <button onClick={e => printMeeting()} className="btn btn-secondary">
+                        <i className="glyphicon glyphicon-print"></i>
+                    </button> 
                 </div>
-            </div>
-            <button onClick={props.backToMeetingsList} className="btn btn-secondary">
+        </div>
+    )
+
+    //Print Meeting
+    const printMeeting = () => {
+        
+        var divContents = document.getElementById("GFG").innerHTML;
+        var a = window.open('', '', 'height=500, width=500');
+        a.document.write('<html>');
+        a.document.write('<body > <h1>Div contents are <br>');
+        a.document.write(divContents);
+        a.document.write('</body></html>');
+        a.document.close();
+        a.print();
+    }
+
+    return (
+        <div className="displayContainer">
+            {meetingDetais}
+            <button onClick={props.backToMeetingsList} className="btn btn-dark">
                         <i className="glyphicon glyphicon-arrow-left"></i>
             </button>
         </div>
