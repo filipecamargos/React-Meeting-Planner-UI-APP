@@ -40,8 +40,13 @@ const MeetingDetails = (props) => {
         });
     }
 
+    //Handle the edit meeting
+    const editMeeting = () => {
+        
+    }
+
     //Meeting Details
-    const meetingDetais = (
+    const meetingDetails = (
             <div className="card details" id="card-details">
                 <div className="card-body">
                     <h5 className="card-title">Meeting Date: {props.date}</h5>
@@ -96,7 +101,7 @@ const MeetingDetails = (props) => {
     //Return the page to be displayed
     return (
         <div className="displayContainer">
-            {meetingDetais}
+            {meetingDetails}
             <button onClick={props.backToMeetingsList} className="btn btn-dark">
                         <i className="glyphicon glyphicon-arrow-left"></i>
             </button>

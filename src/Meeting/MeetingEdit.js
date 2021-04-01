@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react';
 import swal from 'sweetalert';
 
 //Import CSS 
-import './EditMeeting.css'
+import './MeetingEdit.css'
 
 //Create Person Component that takes issues from App and map to display all the data
-const EditMeeting = (props) => {
+const MeetingEdit = (props) => {
 
     //Set the variable in this component state
+    const [id, setId] = useState();
     const [date, setDate] = useState();
     const [conductor, setConductor] = useState();
     const [openingSong, setOpeningSong] = useState();
@@ -92,13 +93,13 @@ const EditMeeting = (props) => {
     }
 
     //
-    //Do the API call to add the meeting
-    const createNewMeeting = (e) => {
+    //Do the API call to edit the meeting
+    const editMeeting = (e) => {
         e.preventDefault();
 
         //Set the request
         const request = {
-            method: 'POST',
+            method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 date: date,
@@ -114,27 +115,26 @@ const EditMeeting = (props) => {
         }
 
         //Call the end point
-        fetch('/api/Programs', request)
+        fetch('/api/Programs/' + {id}, request)
         .then(
-            
-            //Display a confirmation message
-            swal(date + " Meeting", "Sucessfully Added!", "success", {
-                button: "Back to Meetings!",
+          //Display a confirmation message
+          swal(date + " Meeting", "Sucessfully Added!", "success", {
+              button: "Back to Meetings!",
 
-            }).then((backToMeeting) => {
-                
-                if (backToMeeting) {
+          }).then((backToMeeting) => {
+              
+              if (backToMeeting) {
 
-                    //Call the state reset
-                    props.refToResetState();
-                }
-            })
+                  //Call the state reset
+                  props.refToResetState();
+              }
+          })
         );
     }
 
     return (
         <div>
-            <form onSubmit={e => {createNewMeeting(e)}} className="myForm">
+            <form onSubmit={e => {editMeeting(e)}} className="myForm">
                 <div className="form-group">
                     <div className="two-inputs-div">
                         <label htmlFor="conductor">Conductor</label>
@@ -231,4 +231,4 @@ const EditMeeting = (props) => {
 }
 
 //Make sure to export the person
-export default EditMeeting;
+export default MeetingEdit;
