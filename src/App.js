@@ -53,11 +53,18 @@ class App extends Component {
     //Create a temp state to modify it
     let tempState = {...this.state};
     tempState.meetingDetail = true;
-    tempState.detailedMeeting = this.state.meetings[index]
+
+    //Set a condition if the state is coming from editMeeting
+    if(tempState.editMeeting) {
+      tempState.editMeeting = false;
+    } else {
+      tempState.detailedMeeting = this.state.meetings[index]
+    }   
 
     //Set the state 
     this.setState({meetingDetail: tempState.meetingDetail})
     this.setState({detailedMeeting: tempState.detailedMeeting})
+    this.setState({editMeeting: tempState.editMeeting})
   }
 
   //Handle the add meeting
@@ -134,6 +141,10 @@ class App extends Component {
   //Reset the state component
   resetComponent = () => {
 
+    //Set a condition if the state is coming from editMeeting
+    if(tempState.editMeeting) {
+    }   
+
     //Original State
     const temp_state = {
       meetings: [],
@@ -155,7 +166,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log(this.state)
     //Determine the view
     let view = [  
       <DisplayIterator key={"tempKey"}
@@ -207,6 +218,8 @@ class App extends Component {
           <MeetingEdit 
             hymns = {this.state.hymns} 
             meetingToUpdate = {this.state.detailedMeeting}
+            backToMeetingDetails = {this.seeMeetingDetails}
+            refToResetState = {this.resetComponent}
           />
         </div>
       )

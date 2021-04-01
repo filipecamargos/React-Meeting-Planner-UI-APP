@@ -101,6 +101,7 @@ const MeetingEdit = (props) => {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
+                id: props.meetingToUpdate.id,
                 date: date,
                 conductor: conductor,
                 openingSong: openingSong,
@@ -114,7 +115,7 @@ const MeetingEdit = (props) => {
         }
 
         //Call the end point
-        fetch('/api/Programs/' + props.id, request)
+        fetch('/api/Programs/' + props.meetingToUpdate.id, request)
         .then(
           //Display a confirmation message
           swal(date + " Meeting", "Sucessfully Added!", "success", {
@@ -126,6 +127,7 @@ const MeetingEdit = (props) => {
 
                   //Call the state reset
                   props.refToResetState();
+                  props.backToMeetingDetails();
               }
           })
         );
@@ -217,12 +219,12 @@ const MeetingEdit = (props) => {
                         <br />
                         {speakerFields}
                         <div>
-                            <button className="btn btn-success" type="submit">Add Meeting</button>
+                            <button className="btn btn-success" type="submit">Update</button>
                         </div>
                     </div>
                 </div>
             </form>
-            <button onClick={e => props.refToResetState()} className="btn btn-secondary">
+            <button onClick={e => props.backToMeetingDetails()} className="btn btn-dark">
                 <i className="glyphicon glyphicon-arrow-left"></i>
             </button>     
         </div>
