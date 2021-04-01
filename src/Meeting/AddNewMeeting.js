@@ -223,7 +223,7 @@ const AddNewMeeting = (props) => {
                     </div>
                 </div>
             </form>
-            <button onClick={e => props.refToResetState()} className="btn btn-secondary">
+            <button onClick={e => props.refToResetState()} className="btn btn-dark">
                 <i className="glyphicon glyphicon-arrow-left"></i>
             </button>     
         </div>
