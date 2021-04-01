@@ -63,13 +63,16 @@ class App extends Component {
 
       this.componentDidMount()
 
+      //Update the edit view
       fetch(getById).then(res => res.json())
       .then((data) => {
         this.state.detailedMeeting = data;
       }).catch()
 
     } else {
+
       tempState.detailedMeeting = this.state.meetings[index]
+      
     }   
 
     //Set the state 
