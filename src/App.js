@@ -8,6 +8,7 @@ import Meeting from './Meeting/Meeting';
 import MeetingDetails from './Meeting/MeetingDetails';
 import DisplayIterator from './Meeting/DisplayIterator';
 import AddNewMeeting from './Meeting/AddNewMeeting';
+import MeetingEdit from './Meeting/MeetingEdit'
 
 //App Component
 class App extends Component {
@@ -68,14 +69,23 @@ class App extends Component {
     tempState.addMeeting = true;
 
     //Set the state 
-    this.setState({meetingDetail: tempState.meetingDetail})
-    this.setState({detailedMeeting: tempState.detailedMeeting})
-    this.setState({addMeeting: tempState.addMeeting})
+    this.setState({meetingDetail: tempState.meetingDetail});
+    this.setState({detailedMeeting: tempState.detailedMeeting});
+    this.setState({addMeeting: tempState.addMeeting});
   }
 
   //Handle the editMeeting
   editMeeting = () => {
-    console.log("Edit Mode")
+    //Create a temp state to modify it
+    let tempState = {...this.state};
+    tempState.meetingDetail = false;
+    tempState.addMeeting = false;
+    tempState.editMeeting = true;
+
+    //Set the state 
+    this.setState({meetingDetail: tempState.meetingDetail});
+    this.setState({addMeeting: tempState.addMeeting});
+    this.setState({editMeeting: tempState.editMeeting});
   }
 
   //Handle back to the list of meetings
@@ -145,6 +155,7 @@ class App extends Component {
   }
 
   render() {
+
     //Determine the view
     let view = [  
       <DisplayIterator key={"tempKey"}
@@ -157,6 +168,7 @@ class App extends Component {
       />
     ];
 
+    console.log(this.state)
     //Set the view based on the state
     if (this.state.meetingDetail){
       view = (
@@ -181,7 +193,7 @@ class App extends Component {
     } else if (this.state.addMeeting) {
 
       view = (
-        <div key={124}>
+        <div key="add">
           <AddNewMeeting
             hymns = {this.state.hymns} 
             refToResetState = {() => this.resetComponent()}
@@ -189,6 +201,15 @@ class App extends Component {
         </div>
       )
     
+    } else if (this.state.editMeeting) {
+      console.log(this.state)
+      view = (
+        <div key="edit">
+          <MeetingEdit 
+            />
+        </div>
+      )
+
     } else {
 
         //Add the meetings bases on the displayManager
