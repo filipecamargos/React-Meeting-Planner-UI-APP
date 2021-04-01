@@ -141,10 +141,6 @@ class App extends Component {
   //Reset the state component
   resetComponent = () => {
 
-    //Set a condition if the state is coming from editMeeting
-    if(tempState.editMeeting) {
-    }   
-
     //Original State
     const temp_state = {
       meetings: [],
@@ -157,6 +153,12 @@ class App extends Component {
         endPoint: 3 
       }
     }
+    
+    //Set a condition if the state is coming from editMeeting
+    if(this.state.editMeeting) {
+      temp_state.detailedMeeting  = this.state.detailedMeeting;
+      console.log(this.state.detailedMeeting)
+    }   
 
     //Clear the state
     this.setState(temp_state);
@@ -166,7 +168,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     //Determine the view
     let view = [  
       <DisplayIterator key={"tempKey"}

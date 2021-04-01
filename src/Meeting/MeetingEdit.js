@@ -6,7 +6,7 @@ import './MeetingEdit.css'
 
 //Create Person Component that takes issues from App and map to display all the data
 const MeetingEdit = (props) => {
-    console.log(props.meetingToUpdate)
+    
     //Set the variable in this component state
     const [date, setDate] = useState(props.meetingToUpdate.date);
     const [conductor, setConductor] = useState(props.meetingToUpdate.conductor);
@@ -118,8 +118,8 @@ const MeetingEdit = (props) => {
         fetch('/api/Programs/' + props.meetingToUpdate.id, request)
         .then(
           //Display a confirmation message
-          swal(date + " Meeting", "Sucessfully Added!", "success", {
-              button: "Back to Meetings!",
+          swal(date + " Meeting", "Sucessfully Updated!", "success", {
+              button: "Back to Meeting!",
 
           }).then((backToMeeting) => {
               
