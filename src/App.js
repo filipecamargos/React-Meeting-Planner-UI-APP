@@ -18,6 +18,7 @@ class App extends Component {
     hymns: [],
     meetingDetail: false,
     addMeeting: false,
+    editMeeting:false,
     detailedMeeting : null,
     displayManager: {
       startPoint: 0,
@@ -58,19 +59,6 @@ class App extends Component {
     this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
-  //Handle back to the list of meetings
-  backToMeetingsList = () => {
-        //Create a temp state to modify it
-        let tempState = {...this.state};
-        tempState.meetingDetail = false;
-        tempState.detailedMeeting = null;
-        tempState.addMeeting = false;
-
-        //Set the state 
-        this.setState({meetingDetail: tempState.meetingDetail})
-        this.setState({detailedMeeting: tempState.detailedMeeting})
-  }
-
   //Handle the add meeting
   addNewMeeting = () => {
     //Create a temp state to modify it
@@ -83,6 +71,24 @@ class App extends Component {
     this.setState({meetingDetail: tempState.meetingDetail})
     this.setState({detailedMeeting: tempState.detailedMeeting})
     this.setState({addMeeting: tempState.addMeeting})
+  }
+
+  //Handle the editMeeting
+  editMeeting = () => {
+    console.log("Edit Mode")
+  }
+
+  //Handle back to the list of meetings
+  backToMeetingsList = () => {
+    //Create a temp state to modify it
+    let tempState = {...this.state};
+    tempState.meetingDetail = false;
+    tempState.detailedMeeting = null;
+    tempState.addMeeting = false;
+
+    //Set the state 
+    this.setState({meetingDetail: tempState.meetingDetail})
+    this.setState({detailedMeeting: tempState.detailedMeeting})
   }
 
   //Handle next btn
@@ -167,7 +173,8 @@ class App extends Component {
               closingPrayer = {this.state.detailedMeeting.closingPrayer}
               speakers = {this.state.detailedMeeting.speakers}
               backToMeetingsList = {this.backToMeetingsList}
-              refToResetState = {() => this.resetComponent()}
+              refToResetState = {this.resetComponent}
+              refToEditMeeting = {this.editMeeting}
             />
         </div>
       )

@@ -6,7 +6,7 @@ import './MeetingDetails.css'
 
 //Create Person Component that takes issues from App and map to display all the data
 const MeetingDetails = (props) => { 
-    
+
     //Handle to delete the meeting
     const deleteMeeting = () => {
 
@@ -40,11 +40,6 @@ const MeetingDetails = (props) => {
         });
     }
 
-    //Handle the edit meeting
-    const editMeeting = () => {
-        
-    }
-
     //Meeting Details
     const meetingDetails = (
             <div className="card details" id="card-details">
@@ -73,7 +68,7 @@ const MeetingDetails = (props) => {
                     <hr />
                 </div>
                 <div className="btnsIterators">
-                    <button className="btn btn-info">
+                    <button onClick={props.refToEditMeeting} className="btn btn-info">
                         <i className="glyphicon glyphicon-pencil"></i>
                     </button> 
                     <button onClick={e => deleteMeeting()} className="btn btn-danger">
