@@ -168,7 +168,6 @@ class App extends Component {
       />
     ];
 
-    console.log(this.state)
     //Set the view based on the state
     if (this.state.meetingDetail){
       view = (
@@ -202,11 +201,13 @@ class App extends Component {
       )
     
     } else if (this.state.editMeeting) {
-      console.log(this.state)
+
       view = (
         <div key="edit">
           <MeetingEdit 
-            />
+            hymns = {this.state.hymns} 
+            meetingToUpdate = {this.state.detailedMeeting}
+          />
         </div>
       )
 

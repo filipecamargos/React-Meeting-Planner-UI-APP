@@ -6,20 +6,20 @@ import './MeetingEdit.css'
 
 //Create Person Component that takes issues from App and map to display all the data
 const MeetingEdit = (props) => {
-
+    console.log(props.meetingToUpdate)
     //Set the variable in this component state
-    const [date, setDate] = useState();
-    const [conductor, setConductor] = useState();
-    const [openingSong, setOpeningSong] = useState();
-    const [sacramentHymn, setSacramentHymn] = useState();
-    const [specialSong, setSpecialSong] = useState();
-    const [closingSong, setClosingSong] = useState();
-    const [openingPrayer, setOpeningPrayer] = useState();
-    const [closingPrayer, setClosingPrayer] = useState();
-    const [speakers, setSpeakers] = useState([]);
+    const [date, setDate] = useState(props.meetingToUpdate.date);
+    const [conductor, setConductor] = useState(props.meetingToUpdate.conductor);
+    const [openingSong, setOpeningSong] = useState(props.meetingToUpdate.openingSong);
+    const [sacramentHymn, setSacramentHymn] = useState(props.meetingToUpdate.sacramentHymn);
+    const [specialSong, setSpecialSong] = useState(props.meetingToUpdate.specialSong);
+    const [closingSong, setClosingSong] = useState(props.meetingToUpdate.closingSong);
+    const [openingPrayer, setOpeningPrayer] = useState(props.meetingToUpdate.openingPrayer);
+    const [closingPrayer, setClosingPrayer] = useState(props.meetingToUpdate.closingPrayer);
+    const [speakers, setSpeakers] = useState(props.meetingToUpdate.speakers);
 
     //Track the number of speaker the user want to use to later update the DOM
-    const [numberOfSpeakers, setNumberOfSpeakers] = useState();
+    const [numberOfSpeakers, setNumberOfSpeakers] = useState(speakers.length);
 
     //Create a empty speakerField
     let speakerFields = [];
@@ -155,7 +155,7 @@ const MeetingEdit = (props) => {
                     <div className="two-inputs-div">
                         <label htmlFor="sacramentHymn">Sacrament Song</label>
                         <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
-                            onChange={e => setSacramentHymn(e.target.value)} required>
+                            onChange={e => setSacramentHymn(e.target.value)} value={sacramentHymn} required>
                             <option value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
@@ -205,7 +205,7 @@ const MeetingEdit = (props) => {
                     <div className="two-inputs-div">
                         <label htmlFor="numberOfSpeakers">Select Number of Speakers</label>
                         <select name="numberOfSpeakers" id="numberOfSpeakers" className="form-control" 
-                            onChange={e => instatiateSpeakers(e.target.value)} required>
+                            onChange={e => instatiateSpeakers(e.target.value)} value={numberOfSpeakers} required>
                             <option value="" disabled selected>Number of Speakers</option>
                             <option value="0">0</option>
                             <option value="1">1</option>

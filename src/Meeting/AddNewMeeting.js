@@ -156,7 +156,7 @@ const AddNewMeeting = (props) => {
                     <div className="two-inputs-div">
                         <label htmlFor="sacramentHymn">Sacrament Song</label>
                         <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
-                            onChange={e => setSacramentHymn(e.target.value)} required>
+                            onChange={e => setSacramentHymn(e.target.value)} value={sacramentHymn} required>
                             <option key="disable2" value="" disable value>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
