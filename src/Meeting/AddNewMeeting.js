@@ -144,10 +144,10 @@ const AddNewMeeting = (props) => {
                         <label htmlFor="openingSong">Opening Song</label>
                         <select name="openingSong" id="openingSong" className="form-control" 
                             onChange={e => setOpeningSong(e.target.value)} value={openingSong} required>
-                            <option value="" disabled selected>Select Song</option>
+                            <option key="disable1" value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
-                                    <option>{hymn}</option>
+                                    <option key={index}>{hymn}</option>
                                 ))
                             }
                         </select>
@@ -157,10 +157,10 @@ const AddNewMeeting = (props) => {
                         <label htmlFor="sacramentHymn">Sacrament Song</label>
                         <select name="sacramentHymn" id="sacramentHymn" className="form-control" 
                             onChange={e => setSacramentHymn(e.target.value)} required>
-                            <option value="" disabled selected>Select Song</option>
+                            <option key="disable2" value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
-                                    <option>{hymn}</option>
+                                    <option key={index}>{hymn}</option>
                                 ))
                             }
                         </select>
@@ -168,10 +168,10 @@ const AddNewMeeting = (props) => {
                         <label htmlFor="specialSong">Special Song</label>
                         <select name="specialSong" id="specialSong" className="form-control" 
                             onChange={e => setSpecialSong(e.target.value)} value={specialSong} required>
-                            <option value="" disabled selected>Select Song</option>
+                            <option key="disable3" value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
-                                    <option>{hymn}</option>
+                                    <option key={index}>{hymn}</option>
                                 ))
                             }
                         </select>
@@ -181,10 +181,10 @@ const AddNewMeeting = (props) => {
                         <label htmlFor="closingSong">Closing Song</label>
                         <select name="closingSong" id="closingSong" className="form-control" 
                             onChange={e => setClosingSong(e.target.value)} value={closingSong} required>
-                            <option value="" disabled selected>Select Song</option>
+                            <option key="disabled4" value="" disabled selected>Select Song</option>
                             {
                                 props.hymns.map((hymn, index) => (
-                                    <option>{hymn}</option>
+                                    <option key={index}>{hymn}</option>
                                 ))
                             }
                         </select>
