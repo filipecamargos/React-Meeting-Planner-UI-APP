@@ -6,7 +6,7 @@ import './MeetingEdit.css'
 
 //Create Person Component that takes issues from App and map to display all the data
 const MeetingEdit = (props) => {
-    
+
     //Set the variable in this component state
     const [date, setDate] = useState(props.meetingToUpdate.date);
     const [conductor, setConductor] = useState(props.meetingToUpdate.conductor);
@@ -126,7 +126,6 @@ const MeetingEdit = (props) => {
               if (backToMeeting) {
 
                   //Call the state reset
-                  props.refToResetState();
                   props.backToMeetingDetails();
               }
           })

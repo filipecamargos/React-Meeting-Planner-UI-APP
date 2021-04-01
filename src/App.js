@@ -50,13 +50,24 @@ class App extends Component {
 
   //Handle the issue details
   seeMeetingDetails = (index) => {
+
     //Create a temp state to modify it
     let tempState = {...this.state};
     tempState.meetingDetail = true;
 
     //Set a condition if the state is coming from editMeeting
     if(tempState.editMeeting) {
+
       tempState.editMeeting = false;
+      const getById = "/api/Programs/" + this.state.detailedMeeting.id;
+
+      this.componentDidMount()
+
+      fetch(getById).then(res => res.json())
+      .then((data) => {
+        this.state.detailedMeeting = data;
+      }).catch()
+
     } else {
       tempState.detailedMeeting = this.state.meetings[index]
     }   
@@ -147,19 +158,14 @@ class App extends Component {
       hymns: [],
       meetingDetail: false,
       addMeeting: false,
+      meetingDetail :false,
       detailedMeeting : null,
       displayManager: {
         startPoint: 0,
         endPoint: 3 
       }
     }
-    
-    //Set a condition if the state is coming from editMeeting
-    if(this.state.editMeeting) {
-      temp_state.detailedMeeting  = this.state.detailedMeeting;
-      console.log(this.state.detailedMeeting)
-    }   
-
+  
     //Clear the state
     this.setState(temp_state);
 
