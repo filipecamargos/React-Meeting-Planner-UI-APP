@@ -8,7 +8,6 @@ import './MeetingEdit.css'
 const MeetingEdit = (props) => {
 
     //Set the variable in this component state
-    const [id, setId] = useState();
     const [date, setDate] = useState();
     const [conductor, setConductor] = useState();
     const [openingSong, setOpeningSong] = useState();
@@ -115,7 +114,7 @@ const MeetingEdit = (props) => {
         }
 
         //Call the end point
-        fetch('/api/Programs/' + {id}, request)
+        fetch('/api/Programs/' + props.id, request)
         .then(
           //Display a confirmation message
           swal(date + " Meeting", "Sucessfully Added!", "success", {
