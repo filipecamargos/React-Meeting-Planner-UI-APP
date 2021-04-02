@@ -35,6 +35,12 @@ class App extends Component {
     .then(res => res.json())
     .then((data) => {
       this.setState({ meetings: data })
+
+      //Find the meeting details and set the new view data as updated
+      if(this.state.meetingDetail) {
+       this.state.detailedMeeting = data.find(i => i.id === this.state.detailedMeeting.id);
+      }
+
     })
     .catch()
 
@@ -58,17 +64,9 @@ class App extends Component {
     //Set a condition if the state is coming from editMeeting
     if(tempState.editMeeting) {
 
-      tempState.editMeeting = false;
-      const getById = "/api/Programs/" + this.state.detailedMeeting.id;
-
       this.componentDidMount()
-
-      //Update the edit view
-      fetch(getById).then(res => res.json())
-      .then((data) => {
-        this.state.detailedMeeting = data;
-      }).catch()
-
+      tempState.editMeeting = false;
+      
     } else {
 
       tempState.detailedMeeting = this.state.meetings[index]
