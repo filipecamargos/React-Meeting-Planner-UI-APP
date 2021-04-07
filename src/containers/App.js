@@ -6,7 +6,7 @@ import "./App.css"
 //import components
 import Meeting from './Meeting/Meeting';
 import MeetingDetails from './Meeting/MeetingDetails';
-import DisplayIterator from './Meeting/DisplayIterator';
+import DisplayIterator from '../components/DisplayIterator/DisplayIterator';
 import AddNewMeeting from './Meeting/AddNewMeeting';
 import MeetingEdit from './Meeting/MeetingEdit'
 
