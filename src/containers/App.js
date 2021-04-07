@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 import "./App.css"
 
 //import components
-import Meeting from './Meeting/Meeting';
-import MeetingDetails from './Meeting/MeetingDetails';
+import Meeting from '../components/Meeting/Meeting';
+import MeetingDetails from '../components/MeetingDetails/MeetingDetails';
 import DisplayIterator from '../components/DisplayIterator/DisplayIterator';
-import AddNewMeeting from './Meeting/AddNewMeeting';
-import MeetingEdit from './Meeting/MeetingEdit'
+import AddNewMeeting from '../components/AddNewMeeting/AddNewMeeting';
+import MeetingEdit from '../components/MeetingEdit/MeetingEdit'
 
 //App Component
 class App extends Component {
