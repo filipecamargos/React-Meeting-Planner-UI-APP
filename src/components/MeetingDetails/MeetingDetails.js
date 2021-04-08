@@ -44,14 +44,14 @@ const MeetingDetails = (props) => {
     const meetingDetails = (
             <div className="card details" id="card-details">
                 <div className="card-body">
-                    <h5 className="card-title">Meeting Date: {props.date}</h5>
+                    <h5 className="card-title"><i className="glyphicon glyphicon-calendar"></i> Meeting Date: {props.date}</h5>
                     <hr />
                     <p  className="card-text">Conductor: {props.conductor}</p>
                     <p className="card-text">Opening Song: {props.openingSong}</p>
                     <p className="card-text">Opening Prayer: {props.openingPrayer}</p>
                     <p className="card-text">Sacrament Song: {props.sacramentHymn}</p>
                     <hr />                    
-                    <p className="card-text">Speakers:</p>
+                    <p className="card-text"><i className="glyphicon glyphicon-user"></i> Speakers:</p>
                     {props.speakers.map((person, index) => (
                         <div key={person.name + person.topic}>
                             <span>Name: {person.name}</span><br />   
